@@ -2,26 +2,46 @@
 <html lang="pt">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="stylesheet" href="css/style.css" type="text/css"/>
+<link rel="stylesheet" href="css/SimpleAnimationCSS.css" type="text/css"/>
 
 </head>
 
 <body>
 
+<!--=================================================-->
 <header>
 	<img src="img_html_config/logo.png" id="logo"/>
 </header>
+<!--=================================================-->
 
 <div id="whapper">
 
+<!--=================================================-->
 <section id="pesquisa">
-	<input type="text" id="pesquisa_crm"/>
+ <form method="post" action="post">
+	<table>
+		<tr>
+	      <td> <input type="text" id="pesquisa_crm" placeholder="Nome ou CRM..."/> </td>
+	      <td> <button type="submit" id="button_pesquisar">Buscar</button>
+	   </tr>
+	</table>
+ </form>
 </section>
+<!--=================================================-->
 
+<!--=================================================-->
+<section id="section_medicos_atrasados" class="section_class_padrao">
+
+</section>
+<!--=================================================-->
 
 </div><!-- end whapper -->
 
 
-
+<footer>
+</footer>
 
 </body>
+</html>
