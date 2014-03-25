@@ -1,4 +1,6 @@
 Ponutalidademedica::Application.routes.draw do
+  resources :usuarios
+
   resources :medicos
 
   # The priority is based upon order of creation: first created -> highest priority.
