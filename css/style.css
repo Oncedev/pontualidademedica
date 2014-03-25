@@ -1,0 +1,16 @@
+body {
+	margin:0;
+}
+header, nav, section, article {
+	display:block;
+}
+
+header {
+	width:100%;
+	height:95px;
+	background:gray;
+	background-image:-webkit-linear-gradient(#b1c6d2,#95b4c5);
+}
+#logo {
+	width:300px;
+}
