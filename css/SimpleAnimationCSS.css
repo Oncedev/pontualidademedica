@@ -165,3 +165,32 @@ Copyright (c) 2013
  border-radius:50px;
  }
 }
+
+
+.header_batimento {
+ -webkit-animation:batimento 5.9s  infinite;
+ -moz-animation:batimento 1.5s 1;
+ -o-animation:batimento 1.5s 1;
+ -ms-animation:batimento 1.5s 1;
+}
+
+
+@-webkit-keyframes batimento {/* For Chrome and Safare */
+
+	100% {
+	   background-position:right;
+	}
+	50% {
+		background-position:left;
+	}
+	30% {
+		background-position:left;
+	}
+	
+	10% {
+		background-position:left;
+	}
+	
+
+
+}
