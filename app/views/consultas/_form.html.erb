@@ -1,0 +1,39 @@
+<%= form_for(@consulta, url: { action: :new }) do |f| %>
+  <% if @consulta.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@consulta.errors.count, "error") %> prohibited this consulta from being saved:</h2>
+
+      <ul>
+      <% @consulta.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="field">
+    <%= f.label :medico_id %><br>
+    <%= f.number_field :medico_id %>
+  </div>
+  <div class="field">
+    <%= f.label :usuario_id %><br>
+    <%= f.number_field :usuario_id %>
+  </div>
+  <div class="field">
+    <%= f.label :hora_marcacao %><br>
+    <%= f.datetime_select :hora_marcacao %>
+  </div>
+  <div class="field">
+    <%= f.label :hora_atendimento %><br>
+    <%= f.datetime_select :hora_atendimento %>
+  </div>
+  <div class="field">
+    <%= f.label :anonimo %><br>
+    <%= f.check_box :anonimo %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>

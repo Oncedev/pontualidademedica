@@ -1,4 +1,6 @@
 Ponutalidademedica::Application.routes.draw do
+  resources :consultas
+
   resources :usuarios
 
   resources :medicos

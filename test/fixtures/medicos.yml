@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  CRM: 1
-  nome: MyString
+carlos:
+  CRM: 123456
+  nome: Carlos Pereira
 
-two:
-  CRM: 1
-  nome: MyString
+marcelo:
+  CRM: 12344
+  nome: Marcelo Santoa

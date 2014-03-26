@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  medico: carlos
+  usuario: fulano
+  hora_marcacao: 2014-03-26 08:15:10
+  hora_atendimento: 2014-03-26 08:15:10
+  anonimo: false
+
+two:
+  medico: carlos
+  usuario: beltrano
+  hora_marcacao: 2014-03-26 08:15:10
+  hora_atendimento: 2014-03-26 08:15:10
+  anonimo: false

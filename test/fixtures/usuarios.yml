@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  nome: MyString
-  email: MyString
-  senha: MyString
+fulano:
+  nome: Fulano
+  email: fulano@beltrano.com
+  senha: fulano
 
-two:
-  nome: MyString
-  email: MyString
-  senha: MyString
+beltrano:
+  nome: Beltrano da Silva
+  email: beltrano@sicrano.com
+  senha: beltrano
