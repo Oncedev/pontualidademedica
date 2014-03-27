@@ -4,7 +4,24 @@ class MedicosController < ApplicationController
   # GET /medicos
   # GET /medicos.json
   def index
-    @medicos = Medico.all.map do |m|
+    crm = Integer(params[:CRM_ou_nome]) rescue nil
+
+    @medicos = if !params.include? :CRM_ou_nome
+      Medico.all
+    elsif crm.nil?
+      Medico.where nome: params[:CRM_ou_nome]
+    else
+      Medico.where CRM: crm
+    end
+
+    limit = Integer(params[:registros_pagina]) rescue nil
+    num_pagina = Integer(params[:num_pagina]) rescue nil
+    offset = !num_pagina.nil? ? limit * (num_pagina - 1) : 0
+
+    @medicos.limit! limit if !limit.nil?
+    @medicos.offset! offset if !offset.nil?
+
+    @medicos.map! do |m|
       consultas = Consulta.find_by medico_id: m.id
       atraso_total = !consultas.nil? ? consultas.inject(0) do |parcial, c|
         atraso = ((c.hora_atendimento.to_time - c.hora_marcacao.to_time) / 60).to_int
@@ -79,6 +96,6 @@ class MedicosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def medico_params
-      params.require(:medico).permit(:CRM, :nome)
+      params.require(:medico).permit(:CRM, :nome, :CRM_ou_nome, :num_pagina, :registros_pagina)
     end
 end
