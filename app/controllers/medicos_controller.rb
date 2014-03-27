@@ -4,7 +4,17 @@ class MedicosController < ApplicationController
   # GET /medicos
   # GET /medicos.json
   def index
-    @medicos = Medico.all
+    @medicos = Medico.all.map do |m|
+      consultas = Consulta.find_by medico_id: m.id
+      atraso_total = !consultas.nil? ? consultas.inject(0) do |parcial, c|
+        atraso = ((c.hora_atendimento.to_time - c.hora_marcacao.to_time) / 60).to_int
+        
+        parcial + atraso
+      end : 0
+      atraso_medio = !consultas.nil? ? atraso_total / consultas.size : 0
+
+      { medico: m, atraso_medio: atraso_medio }
+    end
   end
 
   # GET /medicos/1
