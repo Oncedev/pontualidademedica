@@ -1,6 +1,8 @@
 Ponutalidademedica::Application.routes.draw do
   resources :consultas
 
+  post "usuarios/autenticar"
+  get "usuarios/login"
   resources :usuarios
 
   resources :medicos
