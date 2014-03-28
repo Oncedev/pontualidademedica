@@ -3,12 +3,78 @@
 <head>
   <title>Ponutalidademedica</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag    "simple_animation", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+    <!--=================================================-->
+    <header class="header_batimento">
+        <!--<img src="img_html_config/icone_fundo_show_menu.png" id="show_menu"/>-->
+
+        <%= image_tag("logo.png", :id => "logo") %>
+
+    </header>
+    <!--=================================================-->
+
+    <div id="whapper">
+
+        <!--=================================================-->
+        <section id="pesquisa">
+
+            <ul id="menu_desktop">
+                <li>
+                    <%= link_to "Início", controller: "medicos", action: "index" %>
+                    <!-- <a href="index.html">Inicio</a> -->
+                </li>
+                <li><a id="link_cadastrar" href="#">Cadastre-se</a></li>
+            </ul>
+
+            <form method="post" action="post">
+                <table>
+                    <tr>
+                      <td> <input type="text" id="pesquisa_crm" placeholder="Nome ou CRM..."/> </td>
+                      <td> <button type="button" id="button_pesquisar">Buscar</button>
+                      </tr>
+                  </table>
+              </form>
+          </section>
+
+          <%= yield %>
+
+      </div>
+
+      <script type="text/javascript">
+        $(document).ready(function() {
+            $("#button_pesquisar").click(function() {
+
+                var area = document.querySelector('#whapper_conteudo table');
+                area.innerHTML = "";
+
+                $.ajax({
+
+                  url: "medicos.json",
+                  data: {CRM_ou_nome: $("#pesquisa_crm").val()},
+                  complete: function( data ) {
+
+                      var meuJSON = JSON.parse( data.responseText );                      
+
+                      for ( var cont = 0; cont < meuJSON.length; cont++ ) {
+
+                         area.innerHTML += 
+
+                         '<tr>' +
+                         '<td>' + meuJSON[ cont ].CRM + '</td>' +
+                         '<td>' + meuJSON[ cont ].nome + '</td>' +
+                         '<td>' + meuJSON[ cont ].atraso_medio + '</td>'+
+                         '</tr>'
+                     }                     
+                 }
+             });
+            });
+        });
+    </script>
 
 </body>
 </html>

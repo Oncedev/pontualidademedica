@@ -1,29 +1,13 @@
-<h1>Listing medicos</h1>
+<section id="section_medicos_atrasados" class="section_class_padrao">
+   <section id="whapper_conteudo">
+    <h2>Lista de Médicos</h2>
 
-<table>
-  <thead>
-    <tr>
-      <th>Crm</th>
-      <th>Nome</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @medicos.each do |medico| %>
+    <table id="table_conteudo">
       <tr>
-        <td><%= medico.CRM %></td>
-        <td><%= medico.nome %></td>
-        <td><%= link_to 'Show', medico %></td>
-        <td><%= link_to 'Edit', edit_medico_path(medico) %></td>
-        <td><%= link_to 'Destroy', medico, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="c">CRM</td>
+        <td class="c">Nome</td>
+        <td class="c">Atraso</td>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Medico', new_medico_path %>
+    </table>
+   </section>
+</section>

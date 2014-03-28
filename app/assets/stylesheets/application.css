@@ -1,13 +1,284 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
- * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the top of the
- * compiled file, but it's generally better to create a new file per style scope.
- *
- *= require_self
- *= require_tree .
- */
+h1,h2,h3 {
+	color:#333333;
+}
+#form_cadastro input{
+  width:100%;
+}
+
+body {
+	margin:0;
+	background:#f7f6f6;
+}
+header, nav, section, article {
+	display:block;
+}
+
+header {
+	width:100%;
+	height:95px;
+	background:gray;
+	background-image:-webkit-linear-gradient(white,#f7f7f7,#ebebeb);
+	background-image:-moz-linear-gradient(white,#f7f7f7,#ebebeb);
+	background-image:-o-linear-gradient(white,#f7f7f7,#ebebeb);
+	background-image:-ms-linear-gradient(white,#f7f7f7,#ebebeb);
+	border-bottom:1px solid gray;
+	border-top:1px solid gray;
+	background-image:url('/assets/fundo_header.png');
+}
+header:hover {
+	-webkit-transition-duration:0.5s;
+	background-position:right;
+}
+
+#logo {
+	width:300px;
+	display:block;
+	
+	
+}
+#pesquisa table {
+	margin:auto;
+}
+#pesquisa input {
+	width:200px;
+}
+input {
+	padding:10px;
+	border:1px solid gray;
+	border-radius:3px;
+	box-shadow:silver 1px 1px 2px inset;
+	outline:none;
+}
+#table_conteudo tr td {
+	padding: 10px;
+}
+#table_conteudo tr td {
+	border:1px solid silver;
+	background:#ebf1f6;
+	background-image:-webkit-linear-gradient(white,#ebf1f6);
+}
+.c {
+	background:#ccd7e1!important;
+	background-image:-webkit-linear-gradient(white,#ccd7e1)!important;
+}
+button {
+	padding:10px;
+	background-image:-webkit-linear-gradient(#f7f7f7,white,#ebebeb);
+    background-image:-moz-linear-gradient(#f7f7f7,#ebebeb);
+    background-image:-o-linear-gradient(#f7f7f7,#ebebeb);
+    background-image:-ms-linear-gradient(#f7f7f7,#ebebeb);
+    border:1px solid gray;
+    border-radius:3px;
+}
+
+#pesquisa {
+	width:100%;
+	padding-top:10px;
+	padding-bottom:10px;
+	border-bottom:1px solid silver;
+	border-top:1p solid silver;
+	background-image:-webkit-linear-gradient(#f7f7f7,#ebebeb);
+    background-image:-moz-linear-gradient(#f7f7f7,#ebebeb);
+    background-image:-o-linear-gradient(#f7f7f7,#ebebeb);
+    background-image:-ms-linear-gradient(#f7f7f7,#ebebeb);
+}
+
+.section_class_padrao {
+	width:700px;
+	height:auto;
+	min-height:300px;
+	padding:10px;
+	border:1px solid silver;
+	border-radius:10px;
+	margin:auto;
+	margin-top:10px;
+	background:white;
+}
+
+footer {
+	width:100%;
+	height:30px;
+	background:#323b44;
+	padding-top:10px;
+	padding-bottom:10px;
+	margin-top:10px;
+	background-image:-webkit-linear-gradient(white,#f7f7f7,#ebebeb);
+	background-image:-moz-linear-gradient(white,#f7f7f7,#ebebeb);
+	background-image:-o-linear-gradient(white,#f7f7f7,#ebebeb);
+	background-image:-ms-linear-gradient(white,#f7f7f7,#ebebeb);
+	border-top:1px solid gray;
+}
+
+
+
+#none {
+	clear:both;
+}
+nav {
+	border-bottom:1px solid silver;
+	border-top:1px solid silver;
+	padding-top:5px;
+	padding-bottom:5px;
+
+	
+}
+
+#center_menu {
+	width:130px;
+	height:auto;
+	margin:auto;
+	width:700px;
+	background:;
+	padding-bottom:10px;
+	
+}
+
+#show_menu {
+	padding:0px;
+	
+	margin:auto;
+	float:left;
+	/*background-image:url('img_css_config/fundo_button.png');*/
+	color:white;
+	font-weight:bold;
+	border:1px solid #047a9d ;
+	cursor:pointer;
+	border-radius:3px;
+	width:50px;
+	margin-top:23px;
+	float:left;
+	margin-left: 10px;
+}
+
+
+#menu_desktop {
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+#menu_desktop li {
+	float:left;
+}
+#menu_desktop a {
+	display:block;
+	text-decoration:none;
+	margin-left:10px;
+	padding:10px;
+	border:1px solid #003366;
+	color:#003366;
+	font-weight:bold;
+	border-radius:3px;
+}
+
+
+#whapper_conteudo {
+	width:auto;
+	font-family:candara;
+	padding:10px;
+}
+
+span {
+	margin-top:10px;
+	width:auto;
+	border-bottom:1px solid silver;
+	border-top:1px solid silver;
+	display:block;
+	padding:10px;
+}
+
+
+
+
+/*------------------------------------------*/
+
+/* 1024 ================================================== */
+@media only screen and (max-width: 1024px) { 
+
+  .section_class_padrao {
+   	  background:;
+   	  width:90%;
+   }
+  #pesquisa input {
+   	 width:200px;
+   }
+   #center_menu {
+   	width:90%;
+   }
+  }
+/* END 1024 ================================================== */
+
+/* 720 ================================================== */
+@media only screen and (max-width: 768px) { 
+	.section_class_padrao {
+   	  background:;
+   	  width:90%;
+   }
+    #pesquisa table {
+   	margin:auto;
+   }
+   #pesquisa input {
+   	width:200px;
+   }
+   
+}
+/* END 720 ================================================== */
+
+/* 480 ================================================== */
+@media only screen and (max-width: 480px) { 
+    
+   .section_class_padrao {
+   	  background:;
+   	  width:90%;
+   }
+   #pesquisa table {
+   	margin:auto;
+   }
+
+   #logo {
+   	width:73%;
+   }
+
+   #menu_desktop {
+   	margin:auto;
+   	width:auto;
+   	padding:10px;
+   	
+   }
+
+
+   
+}
+/* END 480 ================================================== */
+
+/* MENOR RESOLUÇÃO 320 ================================================== */
+@media only screen and (max-width: 320px) { 
+
+   .section_class_padrao {
+   	  background:;
+   	  width:90%;
+    }
+
+   #pesquisa table {
+   	 margin:auto;
+   }
+
+   #logo {
+   	 margin:auto;
+   }
+
+   #pesquisa input {
+   	 width:150px;
+   	 margin-left:0px;
+   }
+   
+   #logo {
+   	width:76%;
+   	margin-top:13px;
+   }
+    
+   
+}
+
+/* END MENOR RESOLUÇÃO 320================================================== */
+
+
