@@ -13,16 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20140326111510) do
 
-  create_table "consulta", force: true do |t|
-    t.integer  "medico_id"
-    t.integer  "usuario_id"
-    t.datetime "hora_marcacao"
-    t.datetime "hora_atendimento"
-    t.boolean  "anonimo"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "consultas", force: true do |t|
     t.integer  "medico_id"
     t.integer  "usuario_id"
