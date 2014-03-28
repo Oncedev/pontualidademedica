@@ -1,4 +1,4 @@
-<%= form_for(@medico) do |f| %>
+<%= form_for [:medico], :html => { :id => "form_cadastro" } do |f| %>
   <% if @medico.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@medico.errors.count, "error") %> prohibited this medico from being saved:</h2>

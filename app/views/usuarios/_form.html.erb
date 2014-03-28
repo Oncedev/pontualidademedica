@@ -1,29 +1,47 @@
-<%= form_for(@usuario) do |f| %>
-  <% if @usuario.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@usuario.errors.count, "error") %> prohibited this usuario from being saved:</h2>
 
-      <ul>
-      <% @usuario.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+<section class="section_class_padrao">
+ <section id="whapper_conteudo">
+    <%= form_for(@usuario, :html => {:id  =>"form_cadastro"}) do |f| %>
+    <% if @usuario.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@usuario.errors.count, "error") %> prohibited this usuario from being saved:</h2>
+
+        <ul>
+          <% @usuario.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
 
-  <div class="field">
-    <%= f.label :nome %><br>
-    <%= f.text_field :nome %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :senha %><br>
-    <%= f.text_field :senha %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+      <table>
+       <tr> 
+          <td>
+            <%= f.text_field :nome %>
+          </td>
+        </tr>
+
+        <tr> 
+          <td>
+            <%= f.text_field :email %>
+          </td>
+        </tr>
+
+        <tr> 
+          <td>
+            <%= f.text_field :senha %>
+          </td>
+        </tr>
+
+        <tr> 
+          <td>
+            <%= f.submit %>
+          </td>
+        </tr>
+
+      </table>
+
+
+    <% end %>
+  </section>
+</section>
