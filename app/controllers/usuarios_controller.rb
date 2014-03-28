@@ -1,10 +1,36 @@
 class UsuariosController < ApplicationController
   before_action :set_usuario, only: [:show, :edit, :update, :destroy]
+  skip_before_filter :verify_authenticity_token
 
   # GET /usuarios
   # GET /usuarios.json
   def index
     @usuarios = Usuario.all
+  end
+
+  def login
+    @usuario = Usuario.new
+  end
+
+  def autenticar
+    usuario = Usuario.find_by email: params[:usuario][:email]
+    puts params
+
+    respond_to do |format|
+      if usuario.nil?
+        flash[:error] = "usuario nao existe"
+        format.json { redirect_to controller: "medicos", action: "index" }
+        format.html { render "teste" }
+      elsif usuario.senha != params[:usuario][:senha]
+        flash[:error] = "usuario nao existe"
+        format.json { redirect_to controller: "medicos", action: "index" }
+        format.html { render "teste" }
+      else
+        session[:usuario] = usuario
+        format.json { redirect_to controller: "medicos", action: "index" }
+        format.html { redirect_to controller: "medicos", action: "index" }
+      end
+    end
   end
 
   # GET /usuarios/1
