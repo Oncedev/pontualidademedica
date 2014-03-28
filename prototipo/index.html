@@ -1,0 +1,104 @@
+<!doctype html>	
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+
+
+<link rel="stylesheet" href="css/style.css" type="text/css"/>
+<link rel="stylesheet" href="css/SimpleAnimationCSS.css" type="text/css"/>
+
+<script>
+
+
+$(document).ready( function() {
+ 
+  
+  
+var endereco = 'medicos.json';
+$.ajax({
+
+    url: endereco,
+    complete: function( data ) {
+
+        var meuJSON = JSON.parse( data.responseText );
+        var area = document.querySelector('#whapper_conteudo table');
+
+        for ( var cont = 0; cont < meuJSON.length; cont++ ) {
+           
+          
+
+             area.innerHTML += 
+                                
+                           '<tr>' +
+                           '<td>' + meuJSON[ cont ].CRM + '</td>' +
+                           '<td>' + meuJSON[ cont ].nome + '</td>' +
+                           '<td>' + meuJSON[ cont ].atraso_medio + '</td>'+
+                           '</tr>'
+              }
+        
+    }
+});
+
+})
+
+</script>
+</head>
+
+<body>
+<!--=================================================-->
+<header class="header_batimento">
+	<!--<img src="img_html_config/icone_fundo_show_menu.png" id="show_menu"/>-->
+	<img src="img_html_config/logo.png" id="logo"/>
+</header>
+<!--=================================================-->
+
+<div id="whapper">
+
+<!--=================================================-->
+<section id="pesquisa">
+
+	<ul id="menu_desktop">
+		<li><a href="index.html">Inicio</a></li>
+		<li><a id="link_cadastrar" href="#">Cadastre-se</a></li>
+	</ul>
+
+ <form method="post" action="post">
+	<table>
+		<tr>
+	      <td> <input type="text" id="pesquisa_crm" placeholder="Nome ou CRM..."/> </td>
+	      <td> <button type="submit" id="button_pesquisar">Buscar</button>
+	   </tr>
+	</table>
+ </form>
+</section>
+<!--=================================================-->
+
+
+<!--=================================================-->
+<section id="section_medicos_atrasados" class="section_class_padrao">
+   <section id="whapper_conteudo">
+   	<h2>Lista de Médicos</h2>
+
+   	<table id="table_conteudo">
+   		<tr>
+   			<td class="c">CRM</td>
+   			<td class="c">Nome</td>
+   			<td class="c">Atraso</td>
+   		</tr>
+   	</table>
+   </section>
+</section>
+<!--=================================================-->
+
+</div><!-- end whapper -->
+
+
+<footer>
+</footer>
+
+<script src="js/core_ajax.js"></script>
+</body>
+</html>
