@@ -24,7 +24,7 @@ class UsuariosController < ApplicationController
         format.html { redirect_to action: "login" }
       else
         session[:usuario] = usuario
-        format.html { redirect_to controller: "welcome" }
+        format.html { redirect_to controller: "medicos" }
       end
     end
   end
