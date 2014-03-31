@@ -299,3 +299,27 @@ span {
 /* END MENOR RESOLUÇÃO 320================================================== */
 
 
+
+#barra_sair {
+	width:auto;
+	padding-top:5px;
+	padding-bottom:5px;
+	background:#006699;
+	color:white;
+	text-align:right;
+}
+#barra_sair  a {
+  margin-right:30px;
+  text-decoration:none;
+  color:white;
+}
+#barra_sair a:hover {
+  text-decoration:underline;
+}
+.nome_usuario {
+	margin-right:20px;
+	color:green;
+	padding:0px;
+	border:0px;
+	color:#bee5f9;
+}

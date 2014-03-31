@@ -17,6 +17,17 @@
     </header>
     <!--=================================================-->
 
+    <!--=================================================--> 
+    <!-- Se não estiver logado some a barra sair-->
+    <% if !session[:usuario].nil? %>
+
+       <div id="barra_sair">
+         <b class="nome_usuario">Logado como <%= session[:usuario].nome %></b>  <b><%= link_to "Sair", controller: "usuarios", action: "logout" %></b>
+       </div><!--end sair--> 
+
+    <% end %>
+    <!--=================================================-->
+
     <div id="whapper">
 
         <!--=================================================-->
@@ -26,13 +37,28 @@
                 <li>
                     <%= link_to "Início", controller: "medicos", action: "index" %>
                 </li>
+              <!-- se estiver logado some button adastro e apresenta button nova consulta-->
+               <% if session[:usuario].nil? %>
                 <li>
                     <%= link_to "Cadastre-se", controller: "usuarios", action: "new" %>
                 </li>
-                  <li>
-                    <%= link_to "Login", controller: "usuarios", action: "login" %>
+               <% else %>
+                <li>
+                    <%= link_to "Nova consulta", controller: "consultas", action: "new" %>
                 </li>
-            </ul>
+               <% end %>
+
+              <!-- se estiver logado some button login -->
+               <% if session[:usuario].nil? %>
+                <li>
+                  <%= link_to "Login", controller: "usuarios", action: "login" %>
+                </li>
+               <% end %>
+
+
+              </ul>
+
+           
           
             <form method="post" action="post">
                 <table>
@@ -66,17 +92,33 @@
                       var meuJSON = JSON.parse( data.responseText );                      
 
                       for ( var cont = 0; cont < meuJSON.length; cont++ ) {
+                       
+                       var passaMinutosParaHoras = Math.floor( meuJSON[ cont ].atraso_medio / 60 ),
+                           resto = meuJSON[ cont ].atraso_medio % 60,
+                           saidaAtrasoFormato = null;
+
+                           if ( passaMinutosParaHoras < 1 ) {
+                                saidaAtrasoFormato = meuJSON[ cont ].atraso_medio + ' m ';
+                           }
+
+                           else {
+                               saidaAtrasoFormato = passaMinutosParaHoras + ' h ' + resto;
+                           }
+
+                          
 
                          area.innerHTML += 
 
                          '<tr>' +
                          '<td>' + meuJSON[ cont ].CRM + '</td>' +
                          '<td>' + meuJSON[ cont ].nome + '</td>' +
-                         '<td>' + meuJSON[ cont ].atraso_medio + '</td>'+
+                         '<td>' + saida + '</td>'+
                          '</tr>'
                      }                     
                  }
              });
+
+                 $("")
             });
         });
     </script>
