@@ -22,24 +22,18 @@
   </div>
   <div class="field">
     <%= f.label :hora_marcacao %><br>
-    <%= f.datetime_select :hora_marcacao %>
+    <%= f.text_field :hora_marcacao %>
   </div>
   <div class="field">
     <%= f.label :hora_atendimento %><br>
-    <%= f.datetime_select :hora_atendimento %>
+    <%= f.text_field :hora_atendimento %>
   </div>
   <div class="field">
     <%= f.label :anonimo %><br>
     <%= f.check_box :anonimo %>
   </div>
   <div class="actions">
-    <button type="submit">Criar Consulta</button>
+    <%= f.submit %>
   </div>
 
 <% end %>
-
-<script>
-$("#consulta_hora_marcacao_1i").datepicker( function() {
-  
-})
-</script>

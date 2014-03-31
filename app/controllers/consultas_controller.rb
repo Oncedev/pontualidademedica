@@ -54,22 +54,8 @@ class ConsultasController < ApplicationController
       usuario_id: session[:usuario].id,
       medico_id: medico.nil? ? nil : medico.id,
       anonimo: par[:anonimo].to_bool,
-      hora_marcacao: DateTime.new(
-        par["hora_marcacao(1i)"].to_i,
-        par["hora_marcacao(2i)"].to_i,
-        par["hora_marcacao(3i)"].to_i,
-        par["hora_marcacao(4i)"].to_i,
-        par["hora_marcacao(5i)"].to_i,
-        0
-      ),
-      hora_atendimento: DateTime.new(
-        par["hora_atendimento(1i)"].to_i,
-        par["hora_atendimento(2i)"].to_i,
-        par["hora_atendimento(3i)"].to_i,
-        par["hora_atendimento(4i)"].to_i,
-        par["hora_atendimento(5i)"].to_i,
-        0
-      )
+      hora_marcacao: DateTime.parse(par["hora_marcacao"]),
+      hora_atendimento: DateTime.parse(par["hora_atendimento"])
     )
 
     respond_to do |format|
