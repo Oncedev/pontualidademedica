@@ -4,8 +4,15 @@
   <title>Pontualidade Médica</title>
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= stylesheet_link_tag    "simple_animation", media: "all", "data-turbolinks-track" => true %>
+
+  <%= stylesheet_link_tag    "cssui", media: "all", "data-turbolinks-track" => true %>
+
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+
+  <%= javascript_include_tag "jqueryui", "data-turbolinks-track" => true %>
+
   <%= csrf_meta_tags %>
+ 
 </head>
 <body>
 
@@ -112,13 +119,13 @@
                          '<tr>' +
                          '<td>' + meuJSON[ cont ].CRM + '</td>' +
                          '<td>' + meuJSON[ cont ].nome + '</td>' +
-                         '<td>' + saida + '</td>'+
+                         '<td>' + saidaAtrasoFormato + '</td>'+
                          '</tr>'
                      }                     
                  }
              });
 
-                 $("")
+                 
             });
         });
     </script>

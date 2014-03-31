@@ -1,3 +1,22 @@
+
+<script>
+$(document).ready(function() {
+
+$('#dd').datepicker({
+    dateFormat: 'dd/mm/yy',
+    dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'],
+    dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
+    dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb','Dom'],
+    monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'],
+    monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'],
+    nextText: 'Próximo',
+    prevText: 'Anterior'
+});
+
+});
+</script>
+<section class="section_class_padrao"
+
 <%= form_for(@consulta) do |f| %>
   <% if flash[:errors].any? %>
     <div id="error_explanation">
@@ -37,3 +56,6 @@
   </div>
 
 <% end %>
+</section>
+
+
