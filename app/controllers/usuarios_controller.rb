@@ -29,6 +29,13 @@ class UsuariosController < ApplicationController
     end
   end
 
+  def logout
+    session[:usuario] = nil
+    respond_to do |format|
+      format.html { redirect_to controller: "medicos" }
+    end
+  end
+
   # GET /usuarios/1
   # GET /usuarios/1.json
   def show
