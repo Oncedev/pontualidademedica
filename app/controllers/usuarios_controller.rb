@@ -10,6 +10,14 @@ class UsuariosController < ApplicationController
 
   def login
     @usuario = Usuario.new
+
+    respond_to do |format|
+      if !session[:usuario].nil?
+        format.html { redirect_to controller: "medicos" }
+      else
+        format.html { render nil }
+      end
+    end
   end
 
   def autenticar
