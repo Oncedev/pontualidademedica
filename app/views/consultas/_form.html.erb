@@ -1,10 +1,10 @@
-<%= form_for(@consulta, url: { action: :new }) do |f| %>
-  <% if @consulta.errors.any? %>
+<%= form_for(@consulta) do |f| %>
+  <% if flash[:errors].any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@consulta.errors.count, "error") %> prohibited this consulta from being saved:</h2>
+      <h2><%= pluralize(flash[:errors].count, "error") %> prohibited this consulta from being saved:</h2>
 
       <ul>
-      <% @consulta.errors.full_messages.each do |msg| %>
+      <% flash[:errors].each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -13,12 +13,12 @@
 
 
   <div class="field">
-    <%= f.label :medico_id %><br>
-    <%= f.number_field :medico_id %>
+    <%= label_tag "Nome do médico" %><br>
+    <%= text_field_tag "nome_medico" %>
   </div>
   <div class="field">
-    <%= f.label :usuario_id %><br>
-    <%= f.number_field :usuario_id %>
+    <%= label_tag "CRM do médico" %><br>
+    <%= number_field_tag "CRM_medico" %>
   </div>
   <div class="field">
     <%= f.label :hora_marcacao %><br>
