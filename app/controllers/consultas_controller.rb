@@ -60,10 +60,11 @@ class ConsultasController < ApplicationController
 
     respond_to do |format|
       if @consulta.save
-        format.html { redirect_to controller: "medicos", notice: "Consulta registrada" }
+        flash[:notice] = "Consulta adicionada"
+        format.html { redirect_to controller: "medicos" }
         format.json { render action: 'show', status: :created, location: @consulta }
       else
-        flash[:errors] += @consulta.errors.full_messages
+        flash.now[:errors] += @consulta.errors.full_messages
         format.html { render action: 'new' }
         format.json { render json: @consulta.errors, status: :unprocessable_entity }
       end
