@@ -1,5 +1,5 @@
-
 <section class="section_class_padrao">
+  <h2>Cadastre-se preenchendo o formulário abaixo</h2>
  <section id="whapper_conteudo">
     <%= form_for(@usuario, :html => {:id  =>"form_cadastro"}) do |f| %>
     <% if @usuario.errors.any? %>
@@ -17,25 +17,25 @@
       <table>
        <tr> 
           <td>
-            <%= f.text_field :nome %>
+            <%= f.text_field :nome, placeholder: 'Nome' %>
           </td>
         </tr>
 
         <tr> 
           <td>
-            <%= f.text_field :email %>
+            <%= f.text_field :email, placeholder: 'Email' %>
           </td>
         </tr>
 
         <tr> 
           <td>
-            <%= f.text_field :senha %>
+            <%= f.text_field :senha, placeholder: 'Senha'%>
           </td>
         </tr>
 
         <tr> 
           <td>
-            <%= f.submit %>
+            <button type="submit" id="cadastrar">Cadastrar</button>
           </td>
         </tr>
 
@@ -45,3 +45,11 @@
     <% end %>
   </section>
 </section>
+
+<script>
+ var pesquisa_crm = document.querySelector('#pesquisa_crm'),
+     button_pesquisar = document.querySelector('#button_pesquisar');
+
+     pesquisa_crm.style.display = 'none';
+     button_pesquisar.style.display = 'none';
+</script>

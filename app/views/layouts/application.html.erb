@@ -11,7 +11,6 @@
 
     <!--=================================================-->
     <header class="header_batimento">
-        <!--<img src="img_html_config/icone_fundo_show_menu.png" id="show_menu"/>-->
 
         <%= image_tag("logo.png", :id => "logo") %>
 
@@ -22,18 +21,19 @@
 
         <!--=================================================-->
         <section id="pesquisa">
-
+          <div id="pesquisa_center">
             <ul id="menu_desktop">
                 <li>
                     <%= link_to "Início", controller: "medicos", action: "index" %>
-                    <!-- <a href="index.html">Inicio</a> -->
                 </li>
                 <li>
-                    <!-- <a id="link_cadastrar" href="#">Cadastre-se</a> -->
                     <%= link_to "Cadastre-se", controller: "usuarios", action: "new" %>
                 </li>
+                  <li>
+                    <%= link_to "Login", controller: "usuarios", action: "login" %>
+                </li>
             </ul>
-
+          
             <form method="post" action="post">
                 <table>
                     <tr>
@@ -42,6 +42,8 @@
                       </tr>
                   </table>
               </form>
+              <div id="none"></div>
+          </div><!--end pesquisa center-->
           </section>
 
           <%= yield %>

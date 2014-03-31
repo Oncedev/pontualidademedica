@@ -1,3 +1,7 @@
+<section class="section_class_padrao">
+  <h2>Faça login inserindo seus dados de acesso!</h2>
+ <section id="whapper_conteudo">
+
 <%= form_for(@usuario, url: { action: "autenticar", method: "post" }) do |f| %>
   <% if !flash[:error].nil? %>
     <p><%= flash[:error] %></p>
@@ -12,6 +16,17 @@
     <%= f.password_field :senha %>
   </div>
   <div class="actions">
-    <%= f.submit "Login" %>
+    <button type="submit">Entrar</button>
   </div>
 <% end %>
+
+</section>
+</section>
+
+<script>
+ var pesquisa_crm = document.querySelector('#pesquisa_crm'),
+     button_pesquisar = document.querySelector('#button_pesquisar');
+
+     pesquisa_crm.style.display = 'none';
+     button_pesquisar.style.display = 'none';
+</script>

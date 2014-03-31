@@ -29,7 +29,10 @@ header:hover {
 	-webkit-transition-duration:0.5s;
 	background-position:right;
 }
-
+#pesquisa_center {
+	width:700px;
+	margin:auto;
+}
 #logo {
 	width:300px;
 	display:block;
@@ -76,7 +79,7 @@ button {
 	padding-top:10px;
 	padding-bottom:10px;
 	border-bottom:1px solid silver;
-	border-top:1p solid silver;
+	border-top:1px solid silver;
 	background-image:-webkit-linear-gradient(#f7f7f7,#ebebeb);
     background-image:-moz-linear-gradient(#f7f7f7,#ebebeb);
     background-image:-o-linear-gradient(#f7f7f7,#ebebeb);
@@ -204,6 +207,11 @@ span {
    #center_menu {
    	width:90%;
    }
+
+  #pesquisa_center {
+	width:90%;
+	margin:auto;
+}
   }
 /* END 1024 ================================================== */
 
@@ -223,6 +231,15 @@ span {
 }
 /* END 720 ================================================== */
 
+@media only screen and (max-width: 560px) { 
+    #pesquisa table {
+    	float:left;
+
+    }
+    #menu_desktop  li{
+    	margin:auto;
+    }
+}
 /* 480 ================================================== */
 @media only screen and (max-width: 480px) { 
     
