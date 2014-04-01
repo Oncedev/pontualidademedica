@@ -14,22 +14,31 @@
       </div>
       <% end %>
 
-      <table>
+      <table class="tabela_cadastro">
+        <tr>
+          <td><label for="nome">Nome</label></td>
+        </tr>
        <tr> 
           <td>
-            <%= f.text_field :nome, placeholder: 'Nome' %>
+            <%= f.text_field :nome, placeholder: 'Exemplo:Mariana' %>
           </td>
         </tr>
 
+         <tr>
+          <td><label for="email">Email</label></td>
+        </tr>
         <tr> 
           <td>
-            <%= f.text_field :email, placeholder: 'Email' %>
+            <%= f.text_field :email, placeholder: 'Exemplo:mariana@gmail.com' %>
           </td>
         </tr>
 
+         <tr>
+          <td><label for="senha">Senha</label></td>
+        </tr>
         <tr> 
           <td>
-            <%= f.text_field :senha, placeholder: 'Senha'%>
+            <input type="password" placeholder="Senha"/>
           </td>
         </tr>
 

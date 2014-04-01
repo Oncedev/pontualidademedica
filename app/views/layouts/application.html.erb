@@ -64,7 +64,7 @@
 
            
           
-            <form method="post" action="post">
+            <form id="pesquisar" method="post" action="post">
                 <table>
                     <tr>
                       <td> <input type="text" id="pesquisa_crm" placeholder="Nome ou CRM..."/> </td>
@@ -81,8 +81,21 @@
       </div>
 
       <script type="text/javascript">
+
         $(document).ready(function() {
+
             $("#button_pesquisar").click(function() {
+               chamaJson();
+             });// end click
+
+
+            $('#pesquisar').submit( function() {
+                chamaJson();
+                return false;
+             });
+
+
+             function chamaJson() {
 
                 var area = document.querySelector('#whapper_conteudo table');
                 area.innerHTML = "";
@@ -121,10 +134,10 @@
                      }                     
                  }
              });
+        
+        }//... end chama json
 
-                 
-            });
-        });
+        });// end jquery...
     </script>
 
 </body>
