@@ -14,6 +14,8 @@ class MedicosController < ApplicationController
       Medico.where CRM: crm
     end
 
+    numero_medicos = @medicos.clone.size # Tem que ser clonado porque o size executa a query
+
     limit = Integer(params[:registros_pagina]) rescue nil
     num_pagina = Integer(params[:num_pagina]) rescue nil
     offset = !num_pagina.nil? ? limit * (num_pagina - 1) : 0
@@ -32,6 +34,9 @@ class MedicosController < ApplicationController
 
       { medico: m, atraso_medio: atraso_medio }
     end
+
+    limit = Float(limit.nil?? numero_medicos : limit)
+    @num_paginas = (numero_medicos / limit).ceil
   end
 
   # GET /medicos/1
