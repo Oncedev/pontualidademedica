@@ -5,7 +5,7 @@ gem 'rails', '4.0.3'
 
 # Use PostgreSQL as the database for Active Record
 group :production, :staging do
-  # gem "pg"
+  gem "pg"
 end
 
 group :development, :test do
