@@ -28,11 +28,11 @@ $(document).ready(function() {
 
   <div class="field">
     <%= label_tag "Nome do médico" %><br>
-    <%= text_field_tag "nome_medico" %>
+    <%= text_field_tag "nome_medico", nil, id: 'nome' %>
   </div>
   <div class="field">
     <%= label_tag "CRM do médico" %><br>
-    <%= number_field_tag "CRM_medico" %>
+    <%= number_field_tag "CRM_medico", nil, id: 'crm' %>
   </div>
   <div class="field">
     <%= label_tag "Data" %><br>
@@ -46,15 +46,26 @@ $(document).ready(function() {
     <%= f.label :hora_atendimento, "Hora de atendimento" %><br>
     <%= text_field_tag "hora_atendimento", nil, class: "time_field" %>
   </div>
+  <br>
   <div class="field">
-    <%= f.check_box :anonimo %>
+    <%= f.check_box :anonimo, class: 'anonimo' %>
     <%= f.label :anonimo, "Não quero aparecer na lista de reclamações do médico" %>
   </div>
+  <br>
   <div class="actions">
-    <%= f.submit %>
+    <button type="submit" id="button_registrar">Registrar consulta</button>
   </div>
 
 <% end %>
 </section>
+
+<script>
+ var pesquisa_crm = document.querySelector('#pesquisa_crm'),
+     button_pesquisar = document.querySelector('#button_pesquisar');
+
+     pesquisa_crm.style.display = 'none';
+     button_pesquisar.style.display = 'none';
+</script>
+
 
 

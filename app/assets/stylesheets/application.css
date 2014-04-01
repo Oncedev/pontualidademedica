@@ -54,6 +54,12 @@ input {
 	box-shadow:silver 1px 1px 2px inset;
 	outline:none;
 	width:300px;
+	margin-left:3px;
+}
+.anonimo {/*Input check box*/
+	width:30px;
+	box-shadow:none;
+	margin-left:0;
 }
 #table_conteudo {
 	border:1px solid silver;
@@ -188,9 +194,12 @@ nav {
 	text-decoration:none;
 	margin-left:10px;
 	padding:10px;
-	border:1px solid #003366;
+	border:1px solid transparent;
 	color:#003366;
 	font-weight:bold;
+}
+#menu_desktop a:hover {
+	border:1px solid silver;
 }
 
 

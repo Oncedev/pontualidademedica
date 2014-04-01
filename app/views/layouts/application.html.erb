@@ -24,9 +24,9 @@
     <!--=================================================--> 
     <!-- Se não estiver logado some a barra sair-->
     <% if !session[:usuario].nil? %>
-
+  
        <div id="barra_sair">
-         <b class="nome_usuario">Logado como <%= session[:usuario].nome %></b>  <b><%= link_to "Sair", controller: "usuarios", action: "logout" %></b>
+         <b class="nome_usuario">Logado como <%= session[:usuario].nome %></b>  <b><%= link_to "Sair",class: 'sair', controller: "usuarios", action: "logout" %></b>
        </div><!--end sair--> 
 
     <% end %>
@@ -90,7 +90,7 @@
            // CHAMA A FUNÇÃO 'chamajson' no evento 'click'
            /////////////////////////////////////////////////
 
-            $("#button_pesquisar").click(function() {
+            $("#button_pesquisar").click( function() {
                 chamaJson();
              }); // end click...
 
@@ -104,12 +104,28 @@
              }); // end submit...
 
            ////////////////////////////////////////////////
-
-             ///chama_function...
+           /*
+           var autoChama = window.setInterval( function() {
+               chamaJson();
+               console.log('eu');
+           }, 1000 );
+           */   
+          
+               
 
         }); // end jquery...
     </script>
 
+   <% if session[:usuario].nil? %>
+   <script>
+
+       (function() {
+            chamaJson();
+            alert('masas');
+        })(); 
+
+    </script>
+   <% end %>
 
 
 </body>
