@@ -54,8 +54,8 @@ class ConsultasController < ApplicationController
       usuario_id: session[:usuario].id,
       medico_id: medico.nil? ? nil : medico.id,
       anonimo: par[:anonimo].to_bool,
-      hora_marcacao: DateTime.parse(par["hora_marcacao"]),
-      hora_atendimento: DateTime.parse(par["hora_atendimento"])
+      hora_marcacao: DateTime.parse(params[:data_consulta] + " " + params[:hora_marcacao]),
+      hora_atendimento: DateTime.parse(params[:data_consulta] + " " + params[:hora_atendimento])
     )
 
     respond_to do |format|
