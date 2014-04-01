@@ -1,10 +1,14 @@
 
 <script>
 $(document).ready(function() {
-
-$('.date_time_picker').datetimepicker();
-
-});
+  $('.date_time_picker').datetimepicker({
+    inline: true,
+    lang: 'pt',
+    format: 'YmdHi',
+    step: 10,
+    maxDate: 0
+    });
+  });
 </script>
 <section class="section_class_padrao">
 
@@ -31,16 +35,16 @@ $('.date_time_picker').datetimepicker();
     <%= number_field_tag "CRM_medico" %>
   </div>
   <div class="field">
-    <%= f.label :hora_marcacao %><br>
+    <%= f.label :hora_marcacao, "Hora de marcação" %><br>
     <%= f.text_field :hora_marcacao, class: "date_time_picker" %>
   </div>
   <div class="field">
-    <%= f.label :hora_atendimento %><br>
+    <%= f.label :hora_atendimento, "Hora de atendimento" %><br>
     <%= f.text_field :hora_atendimento, class: "date_time_picker" %>
   </div>
   <div class="field">
-    <%= f.label :anonimo %><br>
     <%= f.check_box :anonimo %>
+    <%= f.label :anonimo, "Não quero ser listado na lista de reclamações do médico" %>
   </div>
   <div class="actions">
     <%= f.submit %>
