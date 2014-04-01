@@ -131,7 +131,7 @@ nav {
 	height:auto;
 	margin:auto;
 	width:700px;
-	background:;
+	background:transparent;
 	padding-bottom:10px;
 	
 }
@@ -198,7 +198,7 @@ span {
 @media only screen and (max-width: 1024px) { 
 
   .section_class_padrao {
-   	  background:;
+   	  background:transparent;
    	  width:90%;
    }
   #pesquisa input {
@@ -218,7 +218,7 @@ span {
 /* 720 ================================================== */
 @media only screen and (max-width: 768px) { 
 	.section_class_padrao {
-   	  background:;
+   	  background:transparent;
    	  width:90%;
    }
     #pesquisa table {
@@ -244,7 +244,7 @@ span {
 @media only screen and (max-width: 480px) { 
     
    .section_class_padrao {
-   	  background:;
+   	  background:transparent;
    	  width:90%;
    }
    #pesquisa table {
@@ -271,7 +271,7 @@ span {
 @media only screen and (max-width: 320px) { 
 
    .section_class_padrao {
-   	  background:;
+   	  background:transparent;
    	  width:90%;
     }
 
