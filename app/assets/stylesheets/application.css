@@ -53,10 +53,16 @@ input {
 	border-radius:3px;
 	box-shadow:silver 1px 1px 2px inset;
 	outline:none;
+	width:300px;
 }
-
+#table_conteudo {
+	border:1px solid silver;
+	margin:auto;
+	padding:10px;
+}
 #table_conteudo tr td {
 	padding: 10px;
+	width:300px;
 }
 #table_conteudo tr td {
 	border:1px solid silver;
@@ -66,6 +72,13 @@ input {
 	background-image:-o-linear-gradient(white,#ebf1f6);
 	background-image:-ms-linear-gradient(white,#ebf1f6);
 }
+#table_conteudo tr td:hover {
+	color:#006666;
+}
+#table_conteudo tr:hover {
+	background:gray!important;
+	color:#006666;
+}
 
 .c { /* classe nas tabelas*/
 	background:#ccd7e1!important;
@@ -73,6 +86,7 @@ input {
 	background-image:-moz-linear-gradient(white,#ccd7e1)!important;
 	background-image:-o-linear-gradient(white,#ccd7e1)!important;
 	background-image:-ms-linear-gradient(white,#ccd7e1)!important;
+	font-weight:bold;
 }
 button {
 	padding:10px;
@@ -218,6 +232,10 @@ span {
   #pesquisa_center {
 	width:90%;
 	margin:auto;
+}
+
+input {
+	width:200px;
 }
   }
 /* END 1024 ================================================== */

@@ -80,65 +80,37 @@
 
       </div>
 
+
+
       <script type="text/javascript">
 
         $(document).ready(function() {
 
-            $("#button_pesquisar").click(function() {
-               chamaJson();
-             });// end click
+           //////////////////////////////////////////////////
+           // CHAMA A FUNÇÃO 'chamajson' no evento 'click'
+           /////////////////////////////////////////////////
 
+            $("#button_pesquisar").click(function() {
+                chamaJson();
+             }); // end click...
+
+           //////////////////////////////////////////////////
+           // CHAMA A FUNÇÃO 'chamajson' no evento 'submit'
+           /////////////////////////////////////////////////
 
             $('#pesquisar').submit( function() {
                 chamaJson();
                 return false;
-             });
+             }); // end submit...
 
+           ////////////////////////////////////////////////
 
-             function chamaJson() {
+             ///chama_function...
 
-                var area = document.querySelector('#whapper_conteudo table');
-                area.innerHTML = "";
-
-                $.ajax({
-
-                  url: "medicos.json",
-                  data: {CRM_ou_nome: $("#pesquisa_crm").val()},
-                  complete: function( data ) {
-
-                      var meuJSON = JSON.parse( data.responseText );                      
-
-                      for ( var cont = 0; cont < meuJSON.length; cont++ ) {
-                       
-                       var passaMinutosParaHoras = Math.floor( meuJSON[ cont ].atraso_medio / 60 ),
-                           resto = meuJSON[ cont ].atraso_medio % 60,
-                           saidaAtrasoFormato = null;
-
-                           if ( passaMinutosParaHoras < 1 ) {
-                                saidaAtrasoFormato = meuJSON[ cont ].atraso_medio + ' m ';
-                           }
-
-                           else {
-                               saidaAtrasoFormato = passaMinutosParaHoras + ' h ' + resto;
-                           }
-
-                          
-
-                         area.innerHTML += 
-
-                         '<tr>' +
-                         '<td>' + meuJSON[ cont ].CRM + '</td>' +
-                         '<td>' + meuJSON[ cont ].nome + '</td>' +
-                         '<td>' + saidaAtrasoFormato + '</td>'+
-                         '</tr>'
-                     }                     
-                 }
-             });
-        
-        }//... end chama json
-
-        });// end jquery...
+        }); // end jquery...
     </script>
+
+
 
 </body>
 </html>
