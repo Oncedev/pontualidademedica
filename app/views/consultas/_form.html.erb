@@ -15,7 +15,7 @@ $(document).ready(function() {
 <%= form_for(@consulta) do |f| %>
   <% if flash[:errors].any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(flash[:errors].count, "error") %> prohibited this consulta from being saved:</h2>
+      <h2><%= pluralize(flash[:errors].count, "erro") %>:</h2>
 
       <ul>
       <% flash[:errors].each do |msg| %>
