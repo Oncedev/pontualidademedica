@@ -11,16 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140326111510) do
+ActiveRecord::Schema.define(version: 20140402124830) do
 
   create_table "consultas", force: true do |t|
     t.integer  "medico_id"
     t.integer  "usuario_id"
-    t.datetime "hora_marcacao"
-    t.datetime "hora_atendimento"
+    t.time     "hora_marcacao"
+    t.time     "hora_atendimento"
     t.boolean  "anonimo"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.date     "data_consulta"
   end
 
   create_table "medicos", force: true do |t|

@@ -26,7 +26,7 @@ class MedicosController < ApplicationController
     @medicos.map! do |m|
       consultas = Consulta.where medico_id: m.id
       atraso_total = !consultas.nil? ? consultas.inject(0) do |parcial, c|
-        atraso = ((c.hora_atendimento.to_time - c.hora_marcacao.to_time) / 60).to_int
+        atraso = ((c.hora_atendimento - c.hora_marcacao) / 60).to_int
         
         parcial + atraso
       end : 0

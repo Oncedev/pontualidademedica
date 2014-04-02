@@ -35,16 +35,16 @@ $(document).ready(function() {
     <%= number_field_tag "CRM_medico", nil, id: 'crm' %>
   </div>
   <div class="field">
-    <%= label_tag "Data" %><br>
-    <%= text_field_tag "data_consulta", nil, class: "date_picker" %>
+    <%= f.label :data, "Data" %><br>
+    <%= f.text_field :data_consulta, class: "date_picker" %>
   </div>
   <div class="field">
     <%= f.label :hora_marcacao, "Hora de marcação" %><br>
-    <%= text_field_tag "hora_marcacao", nil, class: "time_field" %>
+    <%= f.text_field :hora_marcacao, class: "time_field" %>
   </div>
   <div class="field">
     <%= f.label :hora_atendimento, "Hora de atendimento" %><br>
-    <%= text_field_tag "hora_atendimento", nil, class: "time_field" %>
+    <%= f.text_field :hora_atendimento, class: "time_field" %>
   </div>
   <br>
   <div class="field">

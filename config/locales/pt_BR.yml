@@ -34,6 +34,7 @@ pt_BR:
         medico: "Médico"
         hora_marcacao: "Hora de marcação da consulta"
         hora_atendimento: "Hora de atendimento"
+        data_consulta: "Data da consulta"
         anonimo: "Anonimato"
     errors:
       models:
@@ -62,5 +63,7 @@ pt_BR:
             hora_marcacao:
               blank: "está em branco ou em um formato inválido"
             hora_atendimento:
+              blank: "está em branco ou em um formato inválido"
+            data_consulta:
               blank: "está em branco ou em um formato inválido"
 

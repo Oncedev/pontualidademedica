@@ -50,15 +50,13 @@ class ConsultasController < ApplicationController
       flash[:errors] += medico.errors.full_messages
     end
 
-    hora_marcacao = DateTime.parse(params[:data_consulta] + " " + params[:hora_marcacao]) rescue nil
-    hora_atendimento = DateTime.parse(params[:data_consulta] + " " + params[:hora_atendimento]) rescue nil
-
     @consulta = Consulta.new(
       usuario_id: session[:usuario].id,
       medico_id: medico.nil? ? nil : medico.id,
       anonimo: par[:anonimo].to_bool,
-      hora_marcacao: hora_marcacao,
-      hora_atendimento: hora_atendimento
+      hora_marcacao: par[:hora_marcacao],
+      hora_atendimento: par[:hora_atendimento],
+      data_consulta: par[:data_consulta]
     )
 
     respond_to do |format|
@@ -106,6 +104,12 @@ class ConsultasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def consulta_params
-      params.require(:consulta).permit(:medico_id, :usuario_id, :hora_marcacao, :hora_atendimento, :anonimo)
+      params.require(:consulta).permit(
+        :medico_id,
+        :usuario_id,
+        :hora_marcacao,
+        :hora_atendimento,
+        :data_consulta,
+        :anonimo)
     end
 end
