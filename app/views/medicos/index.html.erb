@@ -6,11 +6,25 @@
    <section id="whapper_conteudo">
     <h2>Lista de Médicos</h2>
 
-    <table id="table_conteudo"></table>
+    <table id="table_conteudo">
+      <tr>
+        <td class="c">CRM</td>
+        <td class="c">Nome</td>
+        <td class="c">Atraso</td>
+      </tr>
+      <% @medicos.each do |m| %>
+        <tr>
+          <td><%= m[:medico].CRM %></td>
+          <td><%= m[:medico].nome %></td>
+          <% if m[:atraso_medio] < 60 %>
+            <% atraso_formatado = "#{m[:atraso_medio]} m" %>
+          <% else %>
+            <% atraso_formatado = "#{m[:atraso_medio] / 60} h #{m[:atraso_medio] % 60}" %>
+          <% end %>
+          <td><%= atraso_formatado %></td>
+        </tr>
+      <% end %>
+    </table>
 
    </section>
 </section>
-
-<script type="text/javascript">
-   chamaJson(); // CHAMANDO A FUNÇÃO QUE CHAMA O JSON...
-</script>
