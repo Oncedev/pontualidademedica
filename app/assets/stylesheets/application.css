@@ -1,6 +1,7 @@
 h1,h2,h3 {
 	color:#333333;
 	opacity:0.60;
+	margin-left:8px;
 }
 #form_cadastro input{
   width:100%;
@@ -32,7 +33,7 @@ header:hover {
 	background-position:right;
 }
 #pesquisa_center {
-	width:700px;
+	width:1000px;
 	margin:auto;
 }
 #logo {
@@ -62,38 +63,38 @@ input {
 	margin-left:0;
 }
 #table_conteudo {
-	border:1px solid silver;
+	
 	margin:auto;
 	padding:10px;
 }
 #table_conteudo tr td {
-	padding: 10px;
-	width:300px;
+	padding:10px;
+	width:400px;
+	background: #f5f0f0;
 }
 #table_conteudo tr td {
+	
 	border:1px solid silver;
-	background:#ebf1f6;
-	background-image:-webkit-linear-gradient(white,#ebf1f6);
-	background-image:-moz-linear-gradient(white,#ebf1f6);
-	background-image:-o-linear-gradient(white,#ebf1f6);
-	background-image:-ms-linear-gradient(white,#ebf1f6);
 }
-#table_conteudo tr td:hover {
-	color:#006666;
+#table_conteudo tr:hover {	
+	font-weight: bold;
+	background: #e1f3fc;
+	color: #3886ad;
 }
-#table_conteudo tr:hover {
-	background:gray!important;
-	color:#006666;
+. tr:hover {
+	
 }
 
 .c { /* classe nas tabelas*/
-	background:#ccd7e1!important;
-	background-image:-webkit-linear-gradient(white,#ccd7e1)!important;
-	background-image:-moz-linear-gradient(white,#ccd7e1)!important;
-	background-image:-o-linear-gradient(white,#ccd7e1)!important;
-	background-image:-ms-linear-gradient(white,#ccd7e1)!important;
+	
 	font-weight:bold;
+	background:#e1dcdc!important;
 }
+.tr_cabecalho:hover {
+	background: #f5f0f0!important;
+	color:black!important;
+}
+
 button {
 	padding:10px;
 	background-image:-webkit-linear-gradient(#f7f7f7,white,#ebebeb);
@@ -117,14 +118,12 @@ button {
 }
 
 .section_class_padrao {
-	width:700px;
+	width:1000px;
 	height:auto;
 	min-height:300px;
 	padding:10px;
-	border:1px solid silver;
 	margin:auto;
 	margin-top:10px;
-	background:white;
 }
 
 footer {
@@ -239,14 +238,16 @@ span {
    }
 
   #pesquisa_center {
-	width:90%;
+	width:100%;
 	margin:auto;
 }
 
 input {
 	width:200px;
 }
-  }
+
+
+}
 /* END 1024 ================================================== */
 
 /* 720 ================================================== */
@@ -296,6 +297,11 @@ input {
    	
    }
 
+   #pesquisa_crm {
+   	 width:100%;
+   	 margin-left:0px;
+   }
+
 
    
 }
@@ -317,8 +323,8 @@ input {
    	 margin:auto;
    }
 
-   #pesquisa input {
-   	 width:150px;
+   #pesquisa_crm {
+   	 width:150px!important;
    	 margin-left:0px;
    }
    
@@ -327,7 +333,9 @@ input {
    	margin-top:13px;
    }
     
-   
+   .barra_sair {
+   	 text-align:center!important;
+   }
 }
 
 /* END MENOR RESOLUÇÃO 320================================================== */
@@ -339,8 +347,13 @@ input {
 	padding-top:5px;
 	padding-bottom:5px;
 	background:#006699;
+	background-image:-webkit-linear-gradient(#5b9cbd,#006699);
+	background-image:-moz-linear-gradient(#5b9cbd,#006699);
+	background-image:-o-linear-gradient(#5b9cbd,#006699);
+	background-image:-ms-linear-gradient(#5b9cbd,#006699);
 	color:white;
 	text-align:right;
+	opacity:0.80;
 }
 #barra_sair  a {
   margin-right:30px;
@@ -356,4 +369,34 @@ input {
 	padding:0px;
 	border:0px;
 	color:#bee5f9;
+}
+
+
+/*Erro emitido do servidor*/
+#error_explanation {
+	color:#923636;
+	padding-bottom:10px;
+	margin-bottom:20px;
+}
+#error_explanation h2 {
+	margin-left:0;
+}
+#error_explanation ul {
+    padding:0;
+    margin:0;
+    list-style:none;
+}
+
+
+#link_sobre {
+	text-decoration:none;
+	display:block;
+	color:black;
+	padding:5px;
+	width:250px;
+	text-align:center;
+	border:1px dotted silver;
+}
+#link_sobre:hover {
+	color:#3283ac;
 }

@@ -1,13 +1,24 @@
-<% if !flash[:notice].nil? %>
+<% if !flash[:notice].nil? %>  
   <p><%= flash[:notice] %></p>
 <% end %>
 
 <section id="section_medicos_atrasados" class="section_class_padrao">
    <section id="whapper_conteudo">
-    <h2>Lista de Médicos</h2>
 
-    <table id="table_conteudo">
-      <tr>
+    <h2>Lista de Médicos</h2>
+  
+  <table>
+    <tr>
+      <td>
+        <form id="pesquisar" method="post" action="">
+            <td> <input type="text" id="pesquisa_crm" placeholder="Nome ou CRM..."/> </td>
+            <td> <button type="button" id="button_pesquisar">Buscar</button> </td>
+        </form>
+    </tr>
+  </table>
+
+    <table id="table_conteudo" class="table_conteuso">
+      <tr class="tr_cabecalho">
         <td class="c">CRM</td>
         <td class="c">Nome</td>
         <td class="c">Atraso</td>
@@ -25,6 +36,30 @@
         </tr>
       <% end %>
     </table>
-
    </section>
 </section>
+
+ <script type="text/javascript">
+
+        $(document).ready(function() {
+
+           //////////////////////////////////////////////////
+           // CHAMA A FUNÇÃO 'chamajson' no evento 'click'
+           /////////////////////////////////////////////////
+
+            $("#button_pesquisar").click( function() {
+                chamaJson();
+             }); // end click...
+
+           //////////////////////////////////////////////////
+           // CHAMA A FUNÇÃO 'chamajson' no evento 'submit'
+           /////////////////////////////////////////////////
+
+            $('#pesquisar').submit( function() {
+                return false;
+             }); // end submit...
+
+           ////////////////////////////////////////////////
+            
+}); // end jquery...
+</script>

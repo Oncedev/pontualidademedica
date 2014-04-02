@@ -4,8 +4,8 @@
 
 function chamaJson() {
 
-                var area = document.querySelector('#whapper_conteudo table');
-                area.innerHTML = "";
+                var area = document.querySelector('#whapper_conteudo #table_conteudo');
+                    area.innerHTML = "";
 
                 $.ajax({
 
@@ -19,17 +19,17 @@ function chamaJson() {
 // MOSTRA O CABEÇALHO DA TABELA...
 ///////////////////////////////////////////////////
 
-                      area.innerHTML += 
+                     area.innerHTML += 
                        '<tr>' +
-                            '<td class="c">CRM</td>' +
-                            '<td class="c">Nome</td>' +
-                            '<td class="c">Atraso</td>' +
+                            '<td class="c"> CRM    </td>' +
+                            '<td class="c"> Nome   </td>' +
+                            '<td class="c"> Atraso </td>' +
                         '</tr>' 
 
 //////////////////////////////////////////////////
 
                     for ( var cont = 0; cont < meuJSON.medicos.length; cont++ ) {
-                       
+                      
 ///////////////////////////////////////////////////////////
 // FORMATA O ATRASO.
 //////////////////////////////////////////////////////////
@@ -50,17 +50,35 @@ function chamaJson() {
 // MOSTRA OS DADOS VIA JSON...
 //////////////////////////////////////////////////////////                          
 
-                         area.innerHTML += 
+                        area.innerHTML += 
 
                          '<tr>' +
                             '<td>' + meuJSON.medicos[ cont ].CRM + '</td>' +
                             '<td>' + meuJSON.medicos[ cont ].nome + '</td>' +
                             '<td>' + saidaAtrasoFormato + '</td>'+
                          '</tr>'
-                     }                     
+                     }                       
                  }
              });
         
         } // end chama json...
 
 /////////////////////////////////////////////////////////
+
+ ////////////////////////////////////////////////
+ // ANIMA A PÁGINA AO CARREGAR!
+ ///////////////////////////////////////////////
+ $(document).ready( function() {
+     $('body').hide();
+     $('body').fadeIn('slow');
+});
+
+
+
+
+
+
+
+
+
+

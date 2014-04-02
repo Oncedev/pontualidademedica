@@ -169,9 +169,9 @@ Copyright (c) 2013
 
 .header_batimento {
  -webkit-animation:batimento 5.9s  infinite;
- -moz-animation:batimento 1.5s 1;
- -o-animation:batimento 1.5s 1;
- -ms-animation:batimento 1.5s 1;
+ -moz-animation:batimento 5.9s  infinite;
+ -o-animation:batimento 5.9s  infinite;
+ -ms-animation:batimento 5.9s infinite;
 }
 
 
@@ -190,7 +190,57 @@ Copyright (c) 2013
 	10% {
 		background-position:left;
 	}
-	
-
-
 }
+
+@-moz-keyframes batimento {/* For Chrome and Safare */
+
+	100% {
+	   background-position:right;
+	}
+	50% {
+		background-position:left;
+	}
+	30% {
+		background-position:left;
+	}
+	
+	10% {
+		background-position:left;
+	}
+}
+
+@-o-keyframes batimento {/* For Chrome and Safare */
+
+	100% {
+	   background-position:right;
+	}
+	50% {
+		background-position:left;
+	}
+	30% {
+		background-position:left;
+	}
+	
+	10% {
+		background-position:left;
+	}
+}
+
+@-ms-keyframes batimento {/* For Chrome and Safare */
+
+	100% {
+	   background-position:right;
+	}
+	50% {
+		background-position:left;
+	}
+	30% {
+		background-position:left;
+	}
+	
+	10% {
+		background-position:left;
+	}
+}
+
+

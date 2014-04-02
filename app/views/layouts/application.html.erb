@@ -37,6 +37,7 @@
         <!--=================================================-->
         <section id="pesquisa">
           <div id="pesquisa_center">
+
             <ul id="menu_desktop">
                 <li>
                     <%= link_to "Início", controller: "medicos", action: "index" %>
@@ -64,16 +65,10 @@
 
            
           
-            <form id="pesquisar" method="post" action="post">
-                <table>
-                    <tr>
-                      <td> <input type="text" id="pesquisa_crm" placeholder="Nome ou CRM..."/> </td>
-                      <td> <button type="button" id="button_pesquisar">Buscar</button>
-                      </tr>
-                  </table>
-              </form>
+           
               <div id="none"></div>
           </div><!--end pesquisa center-->
+
           </section>
 
           <%= yield %>
@@ -82,39 +77,7 @@
 
 
 
-      <script type="text/javascript">
-
-        $(document).ready(function() {
-
-           //////////////////////////////////////////////////
-           // CHAMA A FUNÇÃO 'chamajson' no evento 'click'
-           /////////////////////////////////////////////////
-
-            $("#button_pesquisar").click( function() {
-                chamaJson();
-             }); // end click...
-
-           //////////////////////////////////////////////////
-           // CHAMA A FUNÇÃO 'chamajson' no evento 'submit'
-           /////////////////////////////////////////////////
-
-            $('#pesquisar').submit( function() {
-                chamaJson();
-                return false;
-             }); // end submit...
-
-           ////////////////////////////////////////////////
-           /*
-           var autoChama = window.setInterval( function() {
-               chamaJson();
-               console.log('eu');
-           }, 1000 );
-           */   
-          
-               
-
-        }); // end jquery...
-    </script>
+     
 
 </body>
 </html>

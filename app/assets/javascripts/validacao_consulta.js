@@ -7,12 +7,12 @@ $(document).ready( function() {
          data = $('.date_picker'),
          horaMarcacaoEatendimento = $('.time_field');
 
-       /*
+       
          if ( nome.val() == '' crm.val() == '' ) {
          	alert('em branco');
          	return false;
          }
-*/
+
 
          
 
