@@ -22,18 +22,8 @@ class MedicosController < ApplicationController
 
     @medicos.limit! limit if !limit.nil?
     @medicos.offset! offset if !offset.nil?
-
-    @medicos.map! do |m|
-      consultas = Consulta.where medico_id: m.id
-      atraso_total = !consultas.nil? ? consultas.inject(0) do |parcial, c|
-        atraso = ((c.hora_atendimento - c.hora_marcacao) / 60).to_int
-        
-        parcial + atraso
-      end : 0
-      atraso_medio = consultas.size != 0 ? atraso_total / consultas.size : 0
-
-      { medico: m, atraso_medio: atraso_medio }
-    end
+    @medicos.sort_by!(&:atraso_medio).reverse!
+    @medicos.map! { |m| { medico: m, atraso_medio: m.atraso_medio } }
 
     limit = Float(limit.nil?? numero_medicos : limit)
     @num_paginas = (numero_medicos / limit).ceil
