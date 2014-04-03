@@ -9,7 +9,9 @@ class MedicosController < ApplicationController
     @medicos = if !params.include? :CRM_ou_nome
       Medico.all
     elsif crm.nil?
-      Medico.where("nome like ?", "%#{params[:CRM_ou_nome]}%")      
+      nome = I18n.transliterate params[:CRM_ou_nome]
+
+      Medico.where("nome_pesquisavel like ?", "%#{nome}%")
     else
       Medico.where CRM: crm
     end

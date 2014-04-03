@@ -3,6 +3,11 @@ class Medico < ActiveRecord::Base
   validates :nome, presence: true
   has_many :consultas
 
+  def nome=(val)
+    self[:nome] = val
+    self[:nome_pesquisavel] = I18n.transliterate val
+  end
+
   def atraso_medio
     consultas = Consulta.where medico_id: self.id
     atraso_total = !consultas.nil? ? consultas.inject(0) do |parcial, c|
