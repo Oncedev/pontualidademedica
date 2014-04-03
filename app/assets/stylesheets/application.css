@@ -246,6 +246,11 @@ input {
 	width:200px;
 }
 
+#area_paginacao {
+	width:97%!important;
+	padding-left:13px;
+}
+
 
 }
 /* END 1024 ================================================== */
@@ -388,15 +393,32 @@ input {
 }
 
 
-#link_sobre {
-	text-decoration:none;
-	display:block;
-	color:black;
-	padding:5px;
-	width:250px;
-	text-align:center;
-	border:1px dotted silver;
+#area_paginacao {
+	width:955px;
+	padding-left:13px;
 }
-#link_sobre:hover {
-	color:#3283ac;
+.link_p {
+	display:block;
+	padding:10px;
+	text-decoration:none;
+	color:black;
+	float:left;
+	background-image:-webkit-linear-gradient(#5b9cbd,#006699);
+	background-image:-moz-linear-gradient(#5b9cbd,#006699);
+	background-image:-o-linear-gradient(#5b9cbd,#006699);
+	background-image:-ms-linear-gradient(#5b9cbd,#006699);
+	color:white;
+	float:right;
+}
+#anterior {
+	border-right:1px solid white;
+}
+.link_p:hover {
+    opacity:0.80;
+}
+#area_paginacao p {
+	text-align:left;
+}
+#area_paginaca #proximo {
+	margin-right:10px;
 }

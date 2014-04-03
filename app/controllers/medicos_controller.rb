@@ -22,6 +22,11 @@ class MedicosController < ApplicationController
     num_pagina = Integer(params[:num_pagina]) rescue nil
     offset = !num_pagina.nil? ? limit * (num_pagina - 1) : 0
 
+    respond_to do |format|
+      format.html { limit = 3 if limit.nil? }
+      format.json {}
+    end
+
     @medicos.limit! limit if !limit.nil?
     @medicos.offset! offset if !offset.nil?
     @medicos.sort_by!(&:atraso_medio).reverse!

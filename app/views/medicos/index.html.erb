@@ -36,12 +36,23 @@
         </tr>
       <% end %>
     </table>
+
+    <div id="area_paginacao">
+      <a class="link_p" id="proximo" href="#">Proximo</a>
+      <a class="link_p" id="anterior" href="#">Anterior</a>
+      
+      <p id="show_num_paginas">Página 1 de <%= @num_paginas %></p>
+    </div><!--end paginacao-->
+
    </section>
+   <br>
+   <br>
+   <br>
 </section>
 
  <script type="text/javascript">
 
-        $(document).ready(function() {
+        $(document).ready( function() {
 
            //////////////////////////////////////////////////
            // CHAMA A FUNÇÃO 'chamajson' no evento 'click'
@@ -60,6 +71,60 @@
              }); // end submit...
 
            ////////////////////////////////////////////////
+
+           ///////////////////////////////////////////////////////////////////
+           // INICIA O NÚMERO DE PÁGINAS E O NÚMERO DE REGISTRO DA PÁGINA...
+           //////////////////////////////////////////////////////////////////
+            var registro = 0,
+                pagina = 1;
+           //////////////////////////////////////////////////////////////////
+
+          ///////////////////////////////////////////////////////////////////
+          // PROXIMO INCREMENTA O NUMERO DE PÁGINAS...
+          /////////////////////////////////////////////////////////////////
+
+           $('#proximo').click( function() {
+
+                registro = 3;
+                pagina += 1;
+
+                $('#table_conteudo').hide('slow');
+                paginacao( registro , pagina ); // CHAMA A FUNÇÃO PAGINAÇÃO...
+                $('#table_conteudo').slideDown('slow');
+                //console.log('pagina ' + pagina + 'registro' + registro );
+                $('#anterior').show();
+                   return false;
+
+              }); // end click...
+
+           ///////////////////////////////////////////////////////////////////
+          // ANTERIOR DECREMENTA O NUMERO DE PÁGINAS...
+          /////////////////////////////////////////////////////////////////
+
+            $('#anterior').click( function() {
+
+                registo = 3;
+                pagina -= 1;
+
+                $('#table_conteudo').hide('slow');
+                paginacao( registro , pagina ); // Paginação
+                $('#table_conteudo').slideDown('slow');
+                //console.log('pagina ' + pagina + 'registro' + registro );
+                   return false;
+
+           }); // end click...
+
+         ///////////////////////////////////////////////////////////////////
+        // SE O NÚMERO DE PÁGINAS FOR IGUAL A '1' SOME O BUTTON 'ANTERIOR'
+        ///////////////////////////////////////////////////////////////////
+            if ( pagina == 1 ) {
+                   $('#anterior').hide();
+            }
+        //////////////////////////////////////////////////////////////////
+
+              
             
+
+               
 }); // end jquery...
 </script>
