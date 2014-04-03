@@ -23,7 +23,7 @@ class MedicosController < ApplicationController
     offset = !num_pagina.nil? ? limit * (num_pagina - 1) : 0
 
     respond_to do |format|
-      format.html { limit = 3 if limit.nil? }
+      format.html { limit = 10 if limit.nil? }
       format.json {}
     end
 

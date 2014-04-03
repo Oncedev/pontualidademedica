@@ -1,7 +1,3 @@
-<% if !flash[:notice].nil? %>  
-  <p><%= flash[:notice] %></p>
-<% end %>
-
 <section id="section_medicos_atrasados" class="section_class_padrao">
    <section id="whapper_conteudo">
 
@@ -68,6 +64,7 @@
 
             $('#pesquisar').submit( function() {
                 chamaJson();
+
                 return false;
              }); // end submit...
 
@@ -86,7 +83,7 @@
 
            $('#proximo').click( function() {
 
-                registro = 3;
+                registro = 10;
                 pagina += 1;
 
                 $('#table_conteudo').hide('slow');
@@ -104,7 +101,7 @@
 
             $('#anterior').click( function() {
 
-                registo = 3;
+                registo = 10;
                 pagina -= 1;
 
                 $('#table_conteudo').hide('slow');
