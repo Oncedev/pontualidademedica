@@ -15,6 +15,8 @@ function chamaJson() {
 
                       var meuJSON = JSON.parse( data.responseText );   
 
+                      
+
 ////////////////////////////////////////////////////
 // MOSTRA O CABEÇALHO DA TABELA...
 ///////////////////////////////////////////////////
@@ -97,10 +99,10 @@ function chamaJson() {
                       var meuJSON = JSON.parse( data.responseText );  
 
 ////////////////////////////////////////////////////////////////////////////////
-// SE NUMERO DA PAGINA FOR IGUAL AO TAMANHO DO JSON, SOME O BUTTON PROXIMO...
+// SE NUMERO DA PAGINA FOR IGUAL AO TAMANHO DA´PÁGINA JSON, SOME O BUTTON PROXIMO...
 ///////////////////////////////////////////////////////////////////////////////
 
-                      if ( num_pagina == meuJSON.medicos.length ) {
+                      if ( num_pagina == meuJSON.numero_paginas ) {
                           $('#proximo').hide();
                       }
                       else {
@@ -122,8 +124,6 @@ function chamaJson() {
 /////////////////////////////////////////////////
           var show_num_paginas = document.querySelector('#show_num_paginas');
               show_num_paginas.innerHTML = 'Página ' + num_pagina + ' de ' + meuJSON.numero_paginas;
-          //console.log(meuJSON.numero_paginas);
-          //console.log(num_pagina);
 
 ////////////////////////////////////////////////////
 // MOSTRA O CABEÇALHO DA TABELA...
