@@ -4,6 +4,7 @@ Ponutalidademedica::Application.routes.draw do
   post "usuarios/autenticar"
   get "usuarios/logout"
   get "usuarios/login"
+  get "sobre", controller: "sobre", action: "index"
   resources :usuarios
 
   resources :medicos
