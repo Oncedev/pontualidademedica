@@ -3,6 +3,9 @@ h1,h2,h3 {
 	opacity:0.60;
 	margin-left:8px;
 }
+.section_class_padrao p {
+	text-align:justify;
+}
 #form_cadastro input{
   width:100%;
 }
