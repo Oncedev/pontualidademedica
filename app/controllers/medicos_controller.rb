@@ -26,7 +26,12 @@ class MedicosController < ApplicationController
     @medicos.map! { |m| { medico: m, atraso_medio: m.atraso_medio } }
 
     limit = Float(limit.nil?? numero_medicos : limit)
-    @num_paginas = (numero_medicos / limit).ceil
+
+    @num_paginas = if numero_medicos == 0
+      0
+    else
+      (numero_medicos / limit).ceil
+    end
   end
 
   # GET /medicos/1
