@@ -26,9 +26,9 @@ pt_BR:
         nome: "Nome do médico"
         CRM: "CRM do médico"
       usuario:
-        nome: "Nome do usuário"
-        email: "Email do usuário"
-        senha: "Senha do usuário"
+        nome: "Nome"
+        email: "Email"
+        senha: "Senha"
       consulta:
         usuario: "Usuário"
         medico: "Médico"
