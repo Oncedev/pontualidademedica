@@ -2,12 +2,6 @@ class UsuariosController < ApplicationController
   before_action :set_usuario, only: [:show, :edit, :update, :destroy]
   skip_before_filter :verify_authenticity_token
 
-  # GET /usuarios
-  # GET /usuarios.json
-  def index
-    @usuarios = Usuario.all
-  end
-
   def login
     @usuario = Usuario.new
 
@@ -44,46 +38,55 @@ class UsuariosController < ApplicationController
     end
   end
 
-  # GET /usuarios/1
-  # GET /usuarios/1.json
   def show
+    if session[:usuario].nil? || session[:usuario].id != params[:id].to_i
+      render "public/404.html", status: :not_found
+    end
   end
 
   # GET /usuarios/new
   def new
-    @usuario = Usuario.new
+    if session[:usuario].nil?
+      @usuario = Usuario.new
+    else
+      render "public/404.html", status: :not_found
+    end
   end
 
   # GET /usuarios/1/edit
   def edit
+    if session[:usuario].nil? || session[:usuario].id != params[:id].to_i
+      render "public/404.html", status: :not_found
+    end
   end
 
   # POST /usuarios
-  # POST /usuarios.json
   def create
     @usuario = Usuario.new(usuario_params)
 
-    respond_to do |format|
-      if @usuario.save
-        format.html { redirect_to controller: "medicos", notice: 'Usuario was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @usuario }
-      else
-        format.html { render action: 'new' }
-        format.json { render json: @usuario.errors, status: :unprocessable_entity }
-      end
+    if !session[:usuario].nil?
+      render "public/500.html", status: :internal_server_error
+    elsif @usuario.save
+      redirect_to controller: "medicos", notice: 'Usuario was successfully created.'
+    else
+      render action: 'new'
     end
   end
 
   # PATCH/PUT /usuarios/1
   # PATCH/PUT /usuarios/1.json
   def update
-    respond_to do |format|
-      if @usuario.update(usuario_params)
-        format.html { redirect_to @usuario, notice: 'Usuario was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @usuario.errors, status: :unprocessable_entity }
+    if session[:usuario].nil? || session[:usuario].id != params[:id].to_i
+      render "public/500.html", status: :internal_server_error
+    else
+      respond_to do |format|
+        if @usuario.update(usuario_params)
+          format.html { redirect_to @usuario, notice: 'Usuario was successfully updated.' }
+          format.json { head :no_content }
+        else
+          format.html { render action: 'edit' }
+          format.json { render json: @usuario.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -91,10 +94,14 @@ class UsuariosController < ApplicationController
   # DELETE /usuarios/1
   # DELETE /usuarios/1.json
   def destroy
-    @usuario.destroy
-    respond_to do |format|
-      format.html { redirect_to usuarios_url }
-      format.json { head :no_content }
+    if true # Desativar a exclusão de usuário por enquanto
+      render "public/500.html", status: :internal_server_error
+    else
+      @usuario.destroy
+      respond_to do |format|
+        format.html { redirect_to usuarios_url }
+        format.json { head :no_content }
+      end
     end
   end
 
