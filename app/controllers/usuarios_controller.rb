@@ -18,11 +18,8 @@ class UsuariosController < ApplicationController
     usuario = Usuario.find_by email: params[:usuario][:email]
 
     respond_to do |format|
-      if usuario.nil?
-        flash[:error] = "Usuário não existe"
-        format.html { redirect_to action: "login" }
-      elsif usuario.senha != params[:usuario][:senha]
-        flash[:error] = "Senha incorreta"
+      if usuario.nil? || usuario.senha != params[:usuario][:senha]
+        flash[:error] = "Combinação de usuário e senha inexistente"
         format.html { redirect_to action: "login" }
       else
         session[:usuario] = usuario
