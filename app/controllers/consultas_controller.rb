@@ -63,7 +63,7 @@ class ConsultasController < ApplicationController
       @consulta = Consulta.new(
         usuario_id: session[:usuario].id,
         medico_id: medico.nil? ? nil : medico.id,
-        anonimo: par[:anonimo].to_bool,
+        anonimo: par.include?(:anonimo)? par[:anonimo].to_bool : true,
         hora_marcacao: par[:hora_marcacao],
         hora_atendimento: par[:hora_atendimento],
         data_consulta: par[:data_consulta]
