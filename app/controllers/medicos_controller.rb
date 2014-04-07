@@ -33,9 +33,9 @@ class MedicosController < ApplicationController
         format.json {}
       end
 
-      @medicos.limit! limit if !limit.nil?
-      @medicos.offset! offset if !offset.nil?
+      # TODO: Mandar para SQL
       @medicos.sort_by!(&:atraso_medio).reverse!
+      @medicos = @medicos[offset..offset + limit - 1]
       @medicos.map! { |m| { medico: m, atraso_medio: m.atraso_medio } }
 
       limit = Float(limit.nil?? numero_medicos : limit)
