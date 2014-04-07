@@ -1,5 +1,5 @@
 sudo apt-get update -y
-sudo apt-get install curl -y
+sudo apt-get install curl libpq-dev -y
 \curl -sSL https://get.rvm.io | bash -s stable
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 [[ -s "$HOME/.profile" ]] && source "$HOME/.profile"
