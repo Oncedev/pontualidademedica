@@ -6,7 +6,7 @@
   <table>
     <tr>
       <td>
-        <form id="pesquisar" method="post" action="">
+        <form id="pesquisar" method="post" action="#">
             <td> <input type="text" id="pesquisa_crm" placeholder="Nome ou CRM..."/> </td>
             <td> <button type="button" id="button_pesquisar">Buscar</button> </td>
         </form>
@@ -28,7 +28,7 @@
           <% else %>
             <% atraso_formatado = "#{m[:atraso_medio] / 60} h #{m[:atraso_medio] % 60}" %>
           <% end %>
-          <td><%= atraso_formatado %></td>
+          <td class="td_atraso"><%= atraso_formatado %></td>
         </tr>
       <% end %>
     </table>
@@ -64,7 +64,6 @@
 
             $('#pesquisar').submit( function() {
                 chamaJson();
-
                 return false;
              }); // end submit...
 
@@ -85,16 +84,11 @@
 
                 registro = 10;
                 pagina += 1;
-
-                $('#table_conteudo').hide('slow');
                 paginacao( registro , pagina ); // CHAMA A FUNÇÃO PAGINAÇÃO...
-                $('#table_conteudo').slideDown('slow');
-                //console.log('pagina ' + pagina + 'registro' + registro );
                 $('#anterior').show();
-                   return false;
+                return false;
 
-              }); // end click...
-
+           }); // end click...
            ///////////////////////////////////////////////////////////////////
           // ANTERIOR DECREMENTA O NUMERO DE PÁGINAS...
           /////////////////////////////////////////////////////////////////
@@ -103,12 +97,8 @@
 
                 registo = 10;
                 pagina -= 1;
-
-                $('#table_conteudo').hide('slow');
                 paginacao( registro , pagina ); // Paginação
-                $('#table_conteudo').slideDown('slow');
-                //console.log('pagina ' + pagina + 'registro' + registro );
-                   return false;
+                return false;
 
            }); // end click...
 
@@ -116,9 +106,18 @@
         // SE O NÚMERO DE PÁGINAS FOR IGUAL A '1' SOME O BUTTON 'ANTERIOR'
         ///////////////////////////////////////////////////////////////////
             if ( pagina == 1 ) {
-                   $('#anterior').hide();
+                  $('#anterior').hide();
             }
-        //////////////////////////////////////////////////////////////////
+
+            else if ( pagina == 0 ) {
+                  //$('#proximo').hide();
+                  //$('#anterior').hide();
+            }
+
+            else {
+               $('#proximo').show();
+            }
+        ///////////////////////////////////////////////////////////////////
 
               
             

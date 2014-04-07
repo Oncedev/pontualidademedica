@@ -6,7 +6,7 @@ h1,h2,h3 {
 .section_class_padrao p {
 	text-align:justify;
 }
-#form_cadastro input{
+#form_cadastro input {
   width:100%;
 }
 
@@ -93,6 +93,12 @@ input {
 .tr_cabecalho:hover {
 	background: #f5f0f0!important;
 	color:black!important;
+}
+ 
+/* Tamanho de fonte inicial da tabela */
+#table_conteudo tr {
+	font-size:20px;
+	color:#333333;
 }
 
 button {
@@ -267,7 +273,12 @@ input {
    #pesquisa input {
    	width:200px;
    }
-   
+   /* Diminui o tamanho da fonte da tabela */
+   #table_conteudo tr {
+	font-size:16px;
+	color:#333333;
+   }
+
 }
 /* END 720 ================================================== */
 
@@ -341,6 +352,12 @@ input {
    .barra_sair {
    	 text-align:center!important;
    }
+
+   #table_conteudo td {
+   	border:0px!important;
+   	border-bottom:1px solid silver!important;
+   	
+   }
 }
 
 /* END MENOR RESOLUÇÃO 320================================================== */
@@ -392,6 +409,14 @@ input {
     list-style:none;
 }
 
+/*Mensagem de nunhum cadastro realizado*/
+h2 a {
+	color:#9c2121;
+	display:block;
+	width:auto;
+	text-decoration:none;
+}
+/*------------------------------*/
 
 #area_paginacao {
 	width:955px;
@@ -421,4 +446,17 @@ input {
 }
 #area_paginaca #proximo {
 	margin-right:10px;
+}
+
+
+#show_num_paginas {
+	height:20px;
+	clear: both;
+}
+small {
+	color:#9c2121;
+}
+
+.maisDeUmaHora {
+	background: #fabfbf!important;
 }

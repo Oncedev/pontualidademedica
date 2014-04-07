@@ -15,11 +15,25 @@ function chamaJson() {
 
                       var meuJSON = JSON.parse( data.responseText );   
 
-                      
+////////////////////////////////////////////////////
+// VERIFICA SE FOI ENCONTRADO UMA PESQUISA...
+///////////////////////////////////////////////////
+
+                        if ( meuJSON.medicos.length == 0 ) {
+                           area.innerHTML =  '';
+                           area.innerHTML = '<h2>Esse médico não foi encontrado no sistema <br> <small> Certifique-se de ter digitado o Nome ou CRM coretamente <br> ou volte para a página Inicial!</small></h2>';
+                           $('#show_num_paginas, #proximo').hide();
+                            return false;
+                         }
+                         else {
+                           $('#show_num_paginas, #proximo').show();
+                         }
+
+////////////////////////////////////////////////////
 
 ////////////////////////////////////////////////////
 // MOSTRA O CABEÇALHO DA TABELA...
-///////////////////////////////////////////////////
+///////////////////////////////////////////////////                        
 
                      area.innerHTML += 
                        '<tr>' +
@@ -48,6 +62,7 @@ function chamaJson() {
                                saidaAtrasoFormato = passaMinutosParaHoras + ' h ' + resto;
                            }
 
+
 ///////////////////////////////////////////////////////////
 // MOSTRA OS DADOS VIA JSON...
 //////////////////////////////////////////////////////////                          
@@ -57,10 +72,12 @@ function chamaJson() {
                          '<tr>' +
                             '<td>' + meuJSON.medicos[ cont ].CRM + '</td>' +
                             '<td>' + meuJSON.medicos[ cont ].nome + '</td>' +
-                            '<td>' + saidaAtrasoFormato + '</td>'+
+                            '<td id="td_atraso">' + saidaAtrasoFormato + '</td>'+
                          '</tr>'
-                     }                       
-                 }
+
+                     } // end for...   
+
+                 } // end complete...
              });
         
         } // end chama json...
@@ -92,6 +109,7 @@ function chamaJson() {
                   data: {
                     registros_pagina: registro,
                     num_pagina: num_pagina,
+                   //CRM_ou_nome: $("#pesquisa_crm").val()
                   },
 
                   complete: function( data ) {
@@ -108,8 +126,8 @@ function chamaJson() {
                       else {
                           $('#proximo').show();
                       }
-/////////////////////////////////////////////////
 
+/////////////////////////////////////////////////
 
 /////////////////////////////////////////////////////////////////
 // SE O NUMERO DA PÁGINA FOR IGUAL A 1 SOME O BUTTON ANTERIOR...
@@ -121,7 +139,9 @@ function chamaJson() {
                       else {
                            $('#anterior').show();
                       }
+
 /////////////////////////////////////////////////
+
           var show_num_paginas = document.querySelector('#show_num_paginas');
               show_num_paginas.innerHTML = 'Página ' + num_pagina + ' de ' + meuJSON.numero_paginas;
 
@@ -173,7 +193,7 @@ function chamaJson() {
 
                       
                      } // end loop...                      
-                 }
+                 } // end complete...
              });
 
 
