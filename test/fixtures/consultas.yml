@@ -3,6 +3,7 @@
 one:
   medico: carlos
   usuario: fulano
+  data_consulta: 2014-03-26
   hora_marcacao: 2014-03-26 08:15:10
   hora_atendimento: 2014-03-26 08:15:10
   anonimo: false
@@ -10,6 +11,7 @@ one:
 two:
   medico: carlos
   usuario: beltrano
+  data_consulta: 2014-03-26
   hora_marcacao: 2014-03-26 08:15:10
   hora_atendimento: 2014-03-26 08:15:10
   anonimo: false

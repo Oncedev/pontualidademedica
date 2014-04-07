@@ -55,7 +55,7 @@ class ConsultasController < ApplicationController
 
       medico = Medico.find_by CRM: params[:CRM_medico].to_i
       if medico.nil?
-        medico = Medico.new nome: params[:nome_medico], CRM: params[:CRM_medico].to_i
+        medico = Medico.new nome: params[:nome_medico], CRM: params[:CRM_medico]
         medico_ok = medico.save
         flash[:errors] += medico.errors.full_messages
       end
@@ -63,7 +63,7 @@ class ConsultasController < ApplicationController
       @consulta = Consulta.new(
         usuario_id: session[:usuario].id,
         medico_id: medico.nil? ? nil : medico.id,
-        anonimo: par.include?(:anonimo)? par[:anonimo].to_bool : true,
+        anonimo: par[:anonimo].to_s.to_bool,
         hora_marcacao: par[:hora_marcacao],
         hora_atendimento: par[:hora_atendimento],
         data_consulta: par[:data_consulta]

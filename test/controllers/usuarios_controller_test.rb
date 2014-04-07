@@ -3,6 +3,7 @@ require 'test_helper'
 class UsuariosControllerTest < ActionController::TestCase
   setup do
     @usuario = usuarios(:fulano)
+    session[:usuario] = nil
   end
 
   test "should get new" do
@@ -12,9 +13,9 @@ class UsuariosControllerTest < ActionController::TestCase
 
   test "should create usuario" do
     assert_difference('Usuario.count') do
-      post :create, usuario: { email: @usuario.email, nome: @usuario.nome, senha: @usuario.senha }
+      post :create, usuario: { email: "eu@eu.eu.eu", nome: "Eu", senha: "eu" }
     end
 
-    assert_redirected_to usuario_path(assigns(:usuario))
+    assert_redirected_to controller: "medicos", action: "index"
   end
 end
