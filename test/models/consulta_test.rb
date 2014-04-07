@@ -56,6 +56,20 @@ class ConsultaTest < ActiveSupport::TestCase
     assert !consulta.save, "Salvou consulta sem anonimo"
   end
 
+  test "hora de atendimento no passado" do
+    t = Time.new
+
+    consulta = Consulta.new(
+      data_consulta: Date.new(2012, 2, 8),
+      hora_marcacao: t,
+      hora_atendimento: t - 600,
+      anonimo: true,
+      medico: medicos(:carlos),
+      usuario: usuarios(:beltrano)
+    )
+    assert !consulta.save, "Salvou consulta com atendimento antes da marcacao"
+  end
+
   test "consulta normal" do
     consulta = Consulta.new(
       data_consulta: Date.new(2012, 2, 8),
