@@ -34,6 +34,8 @@ class MedicosController < ApplicationController
       end
 
       # TODO: Mandar para SQL
+      limit = numero_medicos if limit.nil?
+
       @medicos.sort_by!(&:atraso_medio).reverse!
       @medicos = @medicos[offset..offset + limit - 1]
       @medicos.map! { |m| { medico: m, atraso_medio: m.atraso_medio } }
