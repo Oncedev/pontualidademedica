@@ -58,8 +58,9 @@ class ConsultaTest < ActiveSupport::TestCase
 
   test "consulta normal" do
     consulta = Consulta.new(
-      hora_marcacao: DateTime.now,
-      hora_atendimento: DateTime.now,
+      data_consulta: Date.new(2012, 2, 8),
+      hora_marcacao: Time.now,
+      hora_atendimento: Time.now,
       anonimo: true,
       usuario: usuarios(:fulano),
       medico: medicos(:carlos)
