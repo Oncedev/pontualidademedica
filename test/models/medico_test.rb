@@ -30,4 +30,9 @@ class MedicoTest < ActiveSupport::TestCase
     medico = Medico.new nome: "Lucas", CRM: "O CRM do Lucas"
     assert !medico.save, "Salvou medico com CRM so de letras"
   end
+
+  test "nome com numero" do
+    medico = Medico.new nome: "123 de Oliveira", CRM: "12332"
+    assert !medico.save, "Salvou um cara com o nome estranho"
+  end
 end

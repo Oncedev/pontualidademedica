@@ -6,9 +6,17 @@ class ApenasNumerosValidator < ActiveModel::EachValidator
   end
 end
 
+class ApenasLetrasValidator < ActiveModel::EachValidator
+  def validate_each(medico, attr, val)
+    unless /^[\p{L}\s]+$/ =~ val.to_s
+      medico.errors[attr] << "deve conter apenas letras"
+    end
+  end
+end
+
 class Medico < ActiveRecord::Base
   validates :CRM, presence: true, uniqueness: true, apenas_numeros: true
-  validates :nome, presence: true
+  validates :nome, presence: true, apenas_letras: true
   has_many :consultas
 
   def nome=(val)
