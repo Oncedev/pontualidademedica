@@ -49,13 +49,19 @@
  <script type="text/javascript">
 
         $(document).ready( function() {
+  ///////////////////////////////////////////////////////////////////
+           // INICIA O NÚMERO DE PÁGINAS E O NÚMERO DE REGISTRO DA PÁGINA...
+           //////////////////////////////////////////////////////////////////
+            var registro = 0,
+                pagina = 1;
 
            //////////////////////////////////////////////////
            // CHAMA A FUNÇÃO 'chamajson' no evento 'click'
            /////////////////////////////////////////////////
 
             $("#button_pesquisar").click( function() {
-                chamaJson();
+              pagina = 1;
+                chamaJson(10,1);
              }); // end click...
 
            //////////////////////////////////////////////////
@@ -69,11 +75,7 @@
 
            ////////////////////////////////////////////////
 
-           ///////////////////////////////////////////////////////////////////
-           // INICIA O NÚMERO DE PÁGINAS E O NÚMERO DE REGISTRO DA PÁGINA...
-           //////////////////////////////////////////////////////////////////
-            var registro = 0,
-                pagina = 1;
+           
            //////////////////////////////////////////////////////////////////
 
           ///////////////////////////////////////////////////////////////////
@@ -84,7 +86,7 @@
 
                 registro = 10;
                 pagina += 1;
-                paginacao( registro , pagina ); // CHAMA A FUNÇÃO PAGINAÇÃO...
+                chamaJson( registro , pagina ); // CHAMA A FUNÇÃO PAGINAÇÃO...
                 $('#anterior').show();
                 return false;
 
@@ -97,7 +99,7 @@
 
                 registo = 10;
                 pagina -= 1;
-                paginacao( registro , pagina ); // Paginação
+                chamaJson( registro , pagina ); // Paginação
                 return false;
 
            }); // end click...
