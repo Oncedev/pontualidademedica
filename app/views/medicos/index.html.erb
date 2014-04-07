@@ -53,25 +53,28 @@
            // INICIA O NÚMERO DE PÁGINAS E O NÚMERO DE REGISTRO DA PÁGINA...
            //////////////////////////////////////////////////////////////////
             var registro = 0,
-                pagina = 1;
+                pagina = 1,
+
+                // Função de busca que é chamada no submit do campo de busca
+                // e no clique no botão
+                fun_json = function() {
+                  pagina = 1;
+                  chamaJson(10, 1);
+
+                  return false;
+                };
 
            //////////////////////////////////////////////////
            // CHAMA A FUNÇÃO 'chamajson' no evento 'click'
            /////////////////////////////////////////////////
 
-            $("#button_pesquisar").click( function() {
-              pagina = 1;
-                chamaJson(10,1);
-             }); // end click...
+            $("#button_pesquisar").click(fun_json);
 
            //////////////////////////////////////////////////
            // CHAMA A FUNÇÃO 'chamajson' no evento 'submit'
            /////////////////////////////////////////////////
 
-            $('#pesquisar').submit( function() {
-                chamaJson();
-                return false;
-             }); // end submit...
+            $('#pesquisar').submit(fun_json);
 
            ////////////////////////////////////////////////
 
