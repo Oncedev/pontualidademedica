@@ -22,7 +22,10 @@ class MedicosController < ApplicationController
     numero_medicos = @medicos.clone.size # Tem que ser clonado porque o size executa a query
 
     if numero_medicos == 0 && todos_os_medicos
-      render "nenhum_medico"
+      respond_to do |format|
+        format.html { render "nenhum_medico" }
+        format.json { @medicos = []; @num_paginas = 0 }
+      end
     else
       limit = Integer(params[:registros_pagina]) rescue nil
       num_pagina = Integer(params[:num_pagina]) rescue nil
