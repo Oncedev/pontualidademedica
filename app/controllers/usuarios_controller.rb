@@ -64,7 +64,7 @@ class UsuariosController < ApplicationController
     if !session[:usuario].nil?
       render "public/500.html", status: :internal_server_error
     elsif @usuario.save
-      session[:usuario] = @usuario
+      session[:usuario] = Usuario.find @usuario.id
       redirect_to controller: "medicos"
     else
       render action: 'new'
