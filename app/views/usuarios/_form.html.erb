@@ -39,7 +39,7 @@
             <%= f.password_field :senha, placeholder: 'Senha' %>
           </td>
         </tr>
-
+        <tr><td><%= hidden_field_tag "redir", params[:redir] %></td></tr>
         <tr> 
           <td>
             <button type="submit" id="cadastrar">Cadastrar</button>
