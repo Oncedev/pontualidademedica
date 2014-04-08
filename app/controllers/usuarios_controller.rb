@@ -17,14 +17,11 @@ class UsuariosController < ApplicationController
   def autenticar
     usuario = Usuario.find_by email: params[:usuario][:email]
 
-    respond_to do |format|
-      if usuario.nil? || usuario.senha != params[:usuario][:senha]
-        flash[:error] = "Combinação de usuário e senha inexistente"
-        format.html { redirect_to action: "login" }
-      else
-        session[:usuario] = usuario
-        format.html { redirect_to controller: "medicos" }
-      end
+    if usuario.nil? || usuario.senha != params[:usuario][:senha]
+      flash[:error] = "Combinação de usuário e senha inexistente"
+      respond_to { |f| f.html { redirect_to action: "login" } }
+    else
+      entrar_com usuario
     end
   end
 
@@ -64,8 +61,7 @@ class UsuariosController < ApplicationController
     if !session[:usuario].nil?
       render "public/500.html", status: :internal_server_error
     elsif @usuario.save
-      session[:usuario] = Usuario.find @usuario.id
-      redirect_to controller: "medicos"
+      entrar_com Usuario.find @usuario.id
     else
       render action: 'new'
     end
@@ -111,6 +107,18 @@ class UsuariosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def usuario_params
-      params.require(:usuario).permit(:nome, :email, :senha)
+      params.require(:usuario).permit(:nome, :email, :senha, :redir)
+    end
+
+    def entrar_com(usuario)
+      session[:usuario] = usuario
+
+      respond_to do |format|
+        if params[:redir] == "nova_consulta"
+          format.html { redirect_to controller: "consultas", action: "new" }
+        else
+          format.html { redirect_to controller: "medicos" }
+        end
+      end
     end
 end

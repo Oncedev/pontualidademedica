@@ -34,7 +34,7 @@ class ConsultasController < ApplicationController
 
     if session[:usuario].nil?
       flash[:errors] = ["Você precisa logar para adicionar uma nova consulta"]
-      redirect_to controller: "usuarios", action: "login"
+      redirect_to controller: "usuarios", action: "login", redir: "nova_consulta"
     else
       @consulta = Consulta.new usuario_id: session[:usuario]
     end
