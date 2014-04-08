@@ -11,4 +11,4 @@ rvm requirements
 rvm install 2.0
 rvm use 2.0
 bundle
-sudo su vagrant -c "createuser vagrant -s -d -R -w"
+sudo su postgres -c "createuser vagrant -s -d -R -w"
