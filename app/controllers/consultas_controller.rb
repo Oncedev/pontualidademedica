@@ -53,7 +53,7 @@ class ConsultasController < ApplicationController
       flash[:errors] = []
       par = consulta_params
 
-      medico = Medico.find_by CRM: params[:CRM_medico].to_i
+      medico = Medico.find_by CRM: params[:CRM_medico]
       medico_ok = true
       created_medico = false
       if medico.nil?
