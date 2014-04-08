@@ -45,7 +45,12 @@
               <!-- se estiver logado some button adastro e apresenta button nova consulta-->
                <% if session[:usuario].nil? %>
                 <li>
-                    <%= link_to "Cadastre-se", controller: "usuarios", action: "new" %>
+                <%= link_to(
+                  "Cadastre-se",
+                  controller: "usuarios",
+                  action: "new",
+                  redir: params[:redir]
+                ) %>
                 </li>
                <% else %>
                 <li>
@@ -56,7 +61,12 @@
               <!-- se estiver logado some button login -->
                <% if session[:usuario].nil? %>
                 <li>
-                  <%= link_to "Login", controller: "usuarios", action: "login" %>
+                <%= link_to(
+                  "Login",
+                  controller: "usuarios",
+                  action: "login",
+                  redir: params[:redir]
+                ) %>
                 </li>
                <% end %>
 

@@ -12,7 +12,7 @@ class MedicosController < ApplicationController
 
       Medico.all
     elsif crm.nil?
-      nome = I18n.transliterate params[:CRM_ou_nome]
+      nome = I18n.transliterate(params[:CRM_ou_nome]).downcase
 
       Medico.where("nome_pesquisavel like ?", "%#{nome}%")
     else

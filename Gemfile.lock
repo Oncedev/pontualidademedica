@@ -125,6 +125,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   jbuilder (~> 1.2)
   jquery-rails
+  mail
   pg
   rails (= 4.0.3)
   rails_12factor
