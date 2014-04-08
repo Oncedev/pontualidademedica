@@ -70,6 +70,20 @@ class ConsultaTest < ActiveSupport::TestCase
     assert !consulta.save, "Salvou consulta com atendimento antes da marcacao"
   end
 
+  test "data no futuro" do
+    d = Date.today + 1 # Amanhã
+
+    consulta = Consulta.new(
+      data_consulta: d,
+      hora_marcacao: Time.new,
+      hora_atendimento: Time.new,
+      anonimo: true,
+      medico: medicos(:carlos),
+      usuario: usuarios(:beltrano)
+    )
+    assert !consulta.save, "Data no futuro"
+  end
+
   test "consulta normal" do
     consulta = Consulta.new(
       data_consulta: Date.new(2012, 2, 8),
