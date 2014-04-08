@@ -17,5 +17,6 @@ class UsuariosControllerTest < ActionController::TestCase
     end
 
     assert_redirected_to controller: "medicos", action: "index"
+    assert !session[:usuario].nil?, "Nenhum usuario logado depois de cadastro de usuario"
   end
 end
