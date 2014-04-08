@@ -1,6 +1,8 @@
 development:
-  adapter: sqlite3
-  database: dev_db.sqlite3
+  adapter: postgresql
+  database: dev_db
+  template: template0
+  encoding: latin1
   pool: 5
   timeout: 5000
 
