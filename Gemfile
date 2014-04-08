@@ -14,6 +14,7 @@ group :development, :test do
 end
 
 gem 'therubyracer'
+gem 'mail'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
