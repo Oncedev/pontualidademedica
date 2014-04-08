@@ -21,7 +21,7 @@ class Medico < ActiveRecord::Base
 
   def nome=(val)
     self[:nome] = val
-    self[:nome_pesquisavel] = I18n.transliterate val if !val.nil?
+    self[:nome_pesquisavel] = I18n.transliterate(val).downcase if !val.nil?
   end
 
   def atraso_medio
