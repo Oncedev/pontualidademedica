@@ -48,81 +48,77 @@
 
  <script type="text/javascript">
 
-        $(document).ready( function() {
-  ///////////////////////////////////////////////////////////////////
-           // INICIA O NÚMERO DE PÁGINAS E O NÚMERO DE REGISTRO DA PÁGINA...
-           //////////////////////////////////////////////////////////////////
-            var registro = 0,
+ $(document).ready( function() {
+///////////////////////////////////////////////////////////////////
+// INICIA O NÚMERO DE PÁGINAS E O NÚMERO DE REGISTRO DA PÁGINA...
+//////////////////////////////////////////////////////////////////
+
+            var registro = 10,
                 pagina = 1,
 
-                // Função de busca que é chamada no submit do campo de busca
-                // e no clique no botão
-                fun_json = function() {
-                  pagina = 1;
-                  chamaJson(10, 1);
+/////////////////////////////////////////////////////////////////////////////////
+// FUNÇÃO 'cliclEsumbit_chamandoJson' É ATRIBUIDA AOS EVENTOS CLICK E SUBMIT...
+////////////////////////////////////////////////////////////////////////////////
 
+             clickEsumbit_chamandoJson = function() {
+                  chamaJson( registro, pagina );
                   return false;
-                };
+             };
 
-           //////////////////////////////////////////////////
-           // CHAMA A FUNÇÃO 'chamajson' no evento 'click'
-           /////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+// CHAMA A FUNÇÃO 'cliclEsumbit_chamandoJson' QUE CHAMA A FUNÇÃO 'chamaJson'...
+///////////////////////////////////////////////////////////////////////////////
 
-            $("#button_pesquisar").click(fun_json);
+            $("#button_pesquisar").click( clickEsumbit_chamandoJson );
+            $('#pesquisar').submit( clickEsumbit_chamandoJson );
 
-           //////////////////////////////////////////////////
-           // CHAMA A FUNÇÃO 'chamajson' no evento 'submit'
-           /////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////
 
-            $('#pesquisar').submit(fun_json);
-
-           ////////////////////////////////////////////////
-
-           
-           //////////////////////////////////////////////////////////////////
-
-          ///////////////////////////////////////////////////////////////////
-          // PROXIMO INCREMENTA O NUMERO DE PÁGINAS...
-          /////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
+// PROXIMO INCREMENTA O NUMERO DE PÁGINAS...
+/////////////////////////////////////////////////////////////////
 
            $('#proximo').click( function() {
 
-                registro = 10;
                 pagina += 1;
-                chamaJson( registro , pagina ); // CHAMA A FUNÇÃO PAGINAÇÃO...
+                chamaJson( registro , pagina ); 
                 $('#anterior').show();
                 return false;
 
            }); // end click...
-           ///////////////////////////////////////////////////////////////////
-          // ANTERIOR DECREMENTA O NUMERO DE PÁGINAS...
-          /////////////////////////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////////
+// ANTERIOR DECREMENTA O NUMERO DE PÁGINAS...
+/////////////////////////////////////////////////////////////////
 
             $('#anterior').click( function() {
 
-                registo = 10;
                 pagina -= 1;
-                chamaJson( registro , pagina ); // Paginação
-                return false;
 
+                if ( pagina = 1 ) {
+                    pagina = 1;
+                    chamaJson( registro , pagina );
+                }
+                else {
+                   chamaJson( registro , pagina );
+                   console.log('else'+ pagina);
+                   return false;
+                }
+ 
            }); // end click...
 
-         ///////////////////////////////////////////////////////////////////
-        // SE O NÚMERO DE PÁGINAS FOR IGUAL A '1' SOME O BUTTON 'ANTERIOR'
-        ///////////////////////////////////////////////////////////////////
-            if ( pagina == 1 ) {
-                  $('#anterior').hide();
-            }
+///////////////////////////////////////////////////////////////////
+// SE O NÚMERO DE PÁGINAS FOR IGUAL A '1' SOME O BUTTON 'ANTERIOR'
+///////////////////////////////////////////////////////////////////
 
-            else if ( pagina == 0 ) {
-                  //$('#proximo').hide();
-                  //$('#anterior').hide();
-            }
+        if ( pagina == 1 ) {
+            $('#anterior').css('opacity','0.60');
+        }
+        else {
+            $('#anterior').css('opacity','0.90');
+        }
 
-            else {
-               $('#proximo').show();
-            }
-        ///////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////
 
               
             

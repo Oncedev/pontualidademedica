@@ -3,6 +3,9 @@ h1,h2,h3 {
 	opacity:0.60;
 	margin-left:8px;
 }
+button:hover {
+	cursor:pointer;
+}
 .section_class_padrao p {
 	text-align:justify;
 }
@@ -439,7 +442,7 @@ h2 a {
 	border-right:1px solid white;
 }
 .link_p:hover {
-    opacity:0.80;
+    opacity:0.90;
 }
 #area_paginacao p {
 	text-align:left;
@@ -457,6 +460,3 @@ small {
 	color:#9c2121;
 }
 
-.maisDeUmaHora {
-	background: #fabfbf!important;
-}

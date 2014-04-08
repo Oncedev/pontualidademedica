@@ -13,53 +13,46 @@ function chamaJson( registro, num_pagina ) {
                   data: {
                   CRM_ou_nome: $("#pesquisa_crm").val(),
                   registros_pagina: registro,
-                  num_pagina: num_pagina 
+                  num_pagina: num_pagina
                 },
                   complete: function( data ) {
 
                       var meuJSON = JSON.parse( data.responseText );   
 
 ////////////////////////////////////////////////////
-// VERIFICA SE FOI ENCONTRADO UMA PESQUISA...
+// VERIFICA SE FOI ENCONTRADO UM CADASTRADO...
 ///////////////////////////////////////////////////
 
                         if ( meuJSON.medicos.length == 0 ) {
                            area.innerHTML =  '';
                            area.innerHTML = '<h2>Esse médico não foi encontrado no sistema <br> <small> Certifique-se de ter digitado o Nome ou CRM coretamente <br> ou volte para a página Inicial!</small></h2>';
-                           $('#show_num_paginas, #proximo').hide();
+                           $('#anterior').hide();
+                           $('#proximo').hide();
+                           $('#show_num_paginas').hide();
+
                             return false;
                          }
                          else {
-                           $('#show_num_paginas, #proximo').show();
+                           $('#anterior').show();
+                           $('#proximo').show();
+                           $('#show_num_paginas').show();
                          }
 
 ////////////////////////////////////////////////////
 
 ///////////////////////////////////////////////////////////////////////////////////////
-// SE NUMERO DA PAGINA FOR IGUAL AO TAMANHO DA´PÁGINA JSON, SOME O BUTTON PROXIMO...
+// SE O NUMERO DA PAGINA FOR IGUAL AO TAMANHO DO JSON, SOME O BUTTON PROXIMO...
 //////////////////////////////////////////////////////////////////////////////////////
 
                       if ( num_pagina == meuJSON.numero_paginas ) {
                           $('#proximo').hide();
+                          $('#anterior').css('opacity','0.90');
                       }
                       else {
                           $('#proximo').show();
                       }
 
-/////////////////////////////////////////////////
-
-/////////////////////////////////////////////////////////////////
-// SE O NUMERO DA PÁGINA FOR IGUAL A 1 SOME O BUTTON ANTERIOR...
-////////////////////////////////////////////////////////////////
-
-                      if ( num_pagina == 1 ) {
-                           $('#anterior').hide();
-                      }
-                      else {
-                           $('#anterior').show();
-                      }
-
-/////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////
      
 ////////////////////////////////////////////////////
 // MOSTRA OS NÚMEROS DA PÁGINA...
@@ -99,7 +92,6 @@ function chamaJson( registro, num_pagina ) {
                                saidaAtrasoFormato = passaMinutosParaHoras + ' h ' + resto;
                            }
 
-
 ///////////////////////////////////////////////////////////
 // MOSTRA OS DADOS VIA JSON...
 //////////////////////////////////////////////////////////                          
@@ -121,14 +113,6 @@ function chamaJson( registro, num_pagina ) {
 
 /////////////////////////////////////////////////////////
 
- ////////////////////////////////////////////////
- // ANIMA A PÁGINA AO CARREGAR!
- ///////////////////////////////////////////////
-
- $(document).ready( function() {
-     $('body').hide();
-     $('body').fadeIn('slow');
- });
 
 
 
