@@ -50,12 +50,13 @@ class ConsultasController < ApplicationController
     else
       par = consulta_params
 
-      @medico = Medico.find_by CRM: params[:CRM_medico]
-      medico_ok = true
-      created_medico = false
-      if @medico.nil?
-        @medico = Medico.new nome: params[:nome_medico], CRM: params[:CRM_medico]
-        created_medico = medico_ok = @medico.save
+      @medico = Medico.new CRM: params[:CRM_medico], nome: params[:nome_medico]
+      if !medico_created = @medico.save
+        m = Medico.find_by CRM: params[:CRM_medico]
+        if @medico.nome == m.nome
+          @medico = m
+          medico_created = false
+        end
       end
 
       @consulta = Consulta.new(
@@ -68,12 +69,12 @@ class ConsultasController < ApplicationController
       )
 
       respond_to do |format|
-        if @consulta.save && medico_ok
+        if @consulta.save && @medico.valid?
           format.html { redirect_to controller: "medicos" }
           format.json { render action: 'show', status: :created, location: @consulta }
         else
           @consulta.errors.messages.delete :medico
-          medico.delete if created_medico
+          @medico.delete if medico_created
           format.html { render action: 'new' }
           format.json { render json: @consulta.errors, status: :unprocessable_entity }
         end
