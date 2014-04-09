@@ -13,7 +13,7 @@ class ConsultasController < ApplicationController
   # GET /consultas
   # GET /consultas.json
   def index
-    if session[:usuario].nil?
+    if true # session[:usuario].nil?
       render "public/404.html", status: :not_found
     else
       @consultas = Consulta.where usuario_id: session[:usuario].id
@@ -23,7 +23,7 @@ class ConsultasController < ApplicationController
   # GET /consultas/1
   # GET /consultas/1.json
   def show
-    if session[:usuario].nil? || @consulta.usuario_id != session[:usuario].id
+    if true # session[:usuario].nil? || @consulta.usuario_id != session[:usuario].id
       render "public/404.html", status: :not_found
     end
   end
