@@ -2,7 +2,7 @@
 // FUNÇÃO CHAMA O JSON....
 ///////////////////////////////////////////////////////// 
 
-function chamaJson( registro, num_pagina ) {
+       function chamaJson( registro, num_pagina ) {
 
                 var area = document.querySelector('#whapper_conteudo #table_conteudo');
                     area.innerHTML = "";
@@ -41,16 +41,16 @@ function chamaJson( registro, num_pagina ) {
 ////////////////////////////////////////////////////
 
 ///////////////////////////////////////////////////////////////////////////////////////
-// SE O NUMERO DA PAGINA FOR IGUAL AO TAMANHO DO JSON, SOME O BUTTON PROXIMO...
+// SE O NUMERO DA PAGINA FOR IGUAL AO TAMANHO DO JSON, FICA OPACO O BUTTON PROXIMO...
 //////////////////////////////////////////////////////////////////////////////////////
 
-                      if ( num_pagina == meuJSON.numero_paginas ) {
+                       if ( num_pagina == meuJSON.numero_paginas ) {
                           $('#proximo').hide();
                           $('#anterior').css('opacity','0.90');
-                      }
-                      else {
+                       }
+                       else {
                           $('#proximo').show();
-                      }
+                       }
 
 ////////////////////////////////////////////////////////////////////////////////////
      
@@ -115,7 +115,43 @@ function chamaJson( registro, num_pagina ) {
 
 /////////////////////////////////////////////////////////
 
+//////////////////////////////////////////////////////////////
+// FUNÇÃO 'verificaTamanhoJson' VERIFICA O TAMANHO DO JSON E 
+// SOME A PÁGINAÇÃO CASO RETORNE MENOR DO QUE 10...
+/////////////////////////////////////////////////////////////
 
+      function verificaTamanhoJson() {
+
+              $.ajax({
+
+                  url: "medicos.json",
+                  complete: function( data ) {
+
+                      var meuJSON = JSON.parse( data.responseText );  
+
+                      if ( meuJSON.medicos.length <= 10 ) {
+                           
+                           $('#anterior').hide();
+                           $('#proximo').hide();
+                           $('#show_num_paginas').hide();
+
+                      }
+                      else {
+
+                           $('#anterior').show();
+                           $('#proximo').show();
+                           $('#show_num_paginas').show();
+                           console.log('mais de 10');
+
+                      }
+
+                } // end complete...
+ 
+             });
+
+           } // end function...
+
+///////////////////////////////////////////////////////////////////////////////////////
 
 
 
