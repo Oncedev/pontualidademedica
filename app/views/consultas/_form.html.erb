@@ -13,10 +13,10 @@ $(document).ready(function() {
 <section class="section_class_padrao">
 
 <%= form_for(@consulta) do |f| %>
-  <% if flash[:errors].any? %>
+  <% if @consulta.errors.any? %>
     <div id="error_explanation">
       <ul>
-      <% flash[:errors].each do |msg| %>
+      <% @consulta.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>

@@ -50,7 +50,6 @@ class ConsultasController < ApplicationController
     if session[:usuario].nil?
       render "public/500.html", status: :internal_server_error
     else
-      flash[:errors] = []
       par = consulta_params
 
       medico = Medico.find_by CRM: params[:CRM_medico]
@@ -59,7 +58,6 @@ class ConsultasController < ApplicationController
       if medico.nil?
         medico = Medico.new nome: params[:nome_medico], CRM: params[:CRM_medico]
         created_medico = medico_ok = medico.save
-        flash[:errors] += medico.errors.full_messages
       end
 
       @consulta = Consulta.new(
@@ -73,11 +71,11 @@ class ConsultasController < ApplicationController
 
       respond_to do |format|
         if @consulta.save && medico_ok
-          flash[:notice] = "Consulta adicionada"
           format.html { redirect_to controller: "medicos" }
           format.json { render action: 'show', status: :created, location: @consulta }
         else
-          flash.now[:errors] += @consulta.errors.full_messages
+          @consulta.errors.messages.delete :medico
+          @consulta.errors.messages.merge! medico.errors.messages
           medico.delete if created_medico
           format.html { render action: 'new' }
           format.json { render json: @consulta.errors, status: :unprocessable_entity }
