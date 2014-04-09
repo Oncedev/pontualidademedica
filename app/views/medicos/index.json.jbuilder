@@ -6,8 +6,7 @@ json_array = {
       CRM: m[:medico][:CRM],
       nome: m[:medico][:nome],
       atraso_medio: m[:atraso_medio],
-      numero_consultas: m[:numero_consultas],
-      url: medico_url(m[:medico], format: :json)
+      numero_consultas: m[:numero_consultas]
     }
   end
 }
