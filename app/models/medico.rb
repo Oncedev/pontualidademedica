@@ -18,4 +18,8 @@ class Medico < ActiveRecord::Base
 
     consultas.size != 0 ? atraso_total / consultas.size : 0
   end
+
+  def numero_consultas
+    Consulta.where(medico_id: self.id).count
+  end
 end

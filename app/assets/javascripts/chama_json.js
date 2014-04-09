@@ -67,9 +67,10 @@ function chamaJson( registro, num_pagina ) {
 
                      area.innerHTML += 
                        '<tr>' +
-                            '<td class="c"> CRM    </td>' +
-                            '<td class="c"> Nome   </td>' +
-                            '<td class="c"> Atraso </td>' +
+                            '<td class="c"> CRM             </td>' +
+                            '<td class="c"> Nome            </td>' +
+                            '<td class="c"> Atraso          </td>' +
+                            '<td class="c"> Nº de consultas </td>' +
                         '</tr>' 
 
 //////////////////////////////////////////////////
@@ -102,6 +103,7 @@ function chamaJson( registro, num_pagina ) {
                             '<td>' + meuJSON.medicos[ cont ].CRM + '</td>' +
                             '<td>' + meuJSON.medicos[ cont ].nome + '</td>' +
                             '<td id="td_atraso">' + saidaAtrasoFormato + '</td>'+
+                            '<td>' + meuJSON.medicos[ cont ].numero_consultas + '</td>' +
                          '</tr>'
 
                      } // end for...   

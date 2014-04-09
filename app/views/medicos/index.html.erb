@@ -18,6 +18,7 @@
         <td class="c">CRM</td>
         <td class="c">Nome</td>
         <td class="c">Atraso</td>
+        <td class="c">Nº de consultas</td>
       </tr>
       <% @medicos.each do |m| %>
         <tr>
@@ -29,6 +30,7 @@
             <% atraso_formatado = "#{m[:atraso_medio] / 60} h #{m[:atraso_medio] % 60}" %>
           <% end %>
           <td class="td_atraso"><%= atraso_formatado %></td>
+          <td><%= m[:numero_consultas] %></td>
         </tr>
       <% end %>
     </table>

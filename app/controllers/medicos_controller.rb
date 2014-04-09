@@ -41,7 +41,13 @@ class MedicosController < ApplicationController
 
       @medicos.sort_by!(&:atraso_medio).reverse!
       @medicos = @medicos[offset..offset + limit - 1]
-      @medicos.map! { |m| { medico: m, atraso_medio: m.atraso_medio } }
+      @medicos.map! do |m|
+        {
+          medico: m,
+          atraso_medio: m.atraso_medio,
+          numero_consultas: m.numero_consultas
+        }
+      end
 
       limit = Float(limit.nil?? numero_medicos : limit)
 
