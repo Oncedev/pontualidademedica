@@ -93,6 +93,7 @@
                                saidaAtrasoFormato = passaMinutosParaHoras + ' h ' + resto;
                            }
 
+
 ///////////////////////////////////////////////////////////
 // MOSTRA OS DADOS VIA JSON...
 //////////////////////////////////////////////////////////                          

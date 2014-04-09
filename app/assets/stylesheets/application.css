@@ -1,3 +1,7 @@
+#textos {
+	width:50%;
+}
+
 h1,h2,h3 {
 	color:#333333;
 	opacity:0.60;
@@ -286,6 +290,11 @@ input {
 	
 }
 
+#textos {
+	width:80%;
+}
+
+
 }
 /* END 1024 ================================================== */
 
@@ -386,6 +395,11 @@ input {
    	border-bottom:1px solid silver!important;
    	
    }
+
+   #textos {
+	width:100%;
+   }
+
 }
 
 /* END MENOR RESOLUÇÃO 320================================================== */
@@ -462,6 +476,7 @@ h2 a {
 	background-image:-ms-linear-gradient(#5b9cbd,#006699);
 	color:white;
 	float:right;
+	z-index:100;
 }
 #anterior {
 	border-right:1px solid white;
@@ -478,14 +493,12 @@ h2 a {
 
 
 #show_num_paginas {
-	height:20px;
-	clear: both;
+	
+	text-align:left;
+	float:left;
 }
+
 small {
 	color:#9c2121;
 }
 
-
-.inputErroRed {
-	border:1px solid red;
-}
