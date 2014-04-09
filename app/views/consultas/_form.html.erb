@@ -13,9 +13,12 @@ $(document).ready(function() {
 <section class="section_class_padrao">
 
 <%= form_for(@consulta) do |f| %>
-  <% if @consulta.errors.any? %>
+  <% if @consulta.errors.any? || @medico.errors.any? %>
     <div id="error_explanation">
       <ul>
+      <% @medico.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
       <% @consulta.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
@@ -26,11 +29,11 @@ $(document).ready(function() {
 
   <div class="field">
     <%= label_tag "Nome do médico" %><br>
-    <%= text_field_tag "nome_medico", nil, id: 'nome' %>
+    <%= text_field_tag "nome_medico", @medico.nome, id: 'nome' %>
   </div>
   <div class="field">
     <%= label_tag "CRM do médico" %><br>
-    <%= number_field_tag "CRM_medico", nil, id: 'crm' %>
+    <%= number_field_tag "CRM_medico", @medico.CRM, id: 'crm' %>
   </div>
   <div class="field">
     <%= f.label :data, "Data" %><br>

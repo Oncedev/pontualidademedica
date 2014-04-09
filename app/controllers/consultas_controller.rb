@@ -30,13 +30,11 @@ class ConsultasController < ApplicationController
 
   # GET /consultas/new
   def new
-    flash[:errors] = []
-
     if session[:usuario].nil?
-      flash[:errors] = ["Você precisa logar para adicionar uma nova consulta"]
       redirect_to controller: "usuarios", action: "login", redir: "nova_consulta"
     else
       @consulta = Consulta.new usuario_id: session[:usuario]
+      @medico = Medico.new
     end
   end
 
@@ -52,17 +50,17 @@ class ConsultasController < ApplicationController
     else
       par = consulta_params
 
-      medico = Medico.find_by CRM: params[:CRM_medico]
+      @medico = Medico.find_by CRM: params[:CRM_medico]
       medico_ok = true
       created_medico = false
-      if medico.nil?
-        medico = Medico.new nome: params[:nome_medico], CRM: params[:CRM_medico]
-        created_medico = medico_ok = medico.save
+      if @medico.nil?
+        @medico = Medico.new nome: params[:nome_medico], CRM: params[:CRM_medico]
+        created_medico = medico_ok = @medico.save
       end
 
       @consulta = Consulta.new(
         usuario_id: session[:usuario].id,
-        medico_id: medico.nil? ? nil : medico.id,
+        medico_id: @medico.nil? ? nil : @medico.id,
         anonimo: par[:anonimo].to_s.to_bool,
         hora_marcacao: par[:hora_marcacao],
         hora_atendimento: par[:hora_atendimento],
@@ -75,7 +73,6 @@ class ConsultasController < ApplicationController
           format.json { render action: 'show', status: :created, location: @consulta }
         else
           @consulta.errors.messages.delete :medico
-          @consulta.errors.messages.merge! medico.errors.messages
           medico.delete if created_medico
           format.html { render action: 'new' }
           format.json { render json: @consulta.errors, status: :unprocessable_entity }
