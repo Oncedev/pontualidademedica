@@ -1,5 +1,6 @@
 #textos {
 	width:50%;
+	color:#666666;
 }
 
 h1,h2,h3 {
@@ -166,14 +167,21 @@ footer {
 	padding-top:10px;
 	padding-bottom:10px;
 	margin-top:10px;
+	background: #ebebeb;
 	background-image:-webkit-linear-gradient(white,#f7f7f7,#ebebeb);
 	background-image:-moz-linear-gradient(white,#f7f7f7,#ebebeb);
 	background-image:-o-linear-gradient(white,#f7f7f7,#ebebeb);
 	background-image:-ms-linear-gradient(white,#f7f7f7,#ebebeb);
 	border-top:1px solid gray;
+	border-bottom:1px solid gray;
+	line-height: 30px;
 }
 
-
+footer a {
+	margin-left:10px;
+	color:gray;
+	text-decoration:none;
+}
 
 #none {
 	clear:both;
@@ -501,4 +509,3 @@ h2 a {
 small {
 	color:#9c2121;
 }
-
