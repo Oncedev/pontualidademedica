@@ -33,7 +33,7 @@ class UsuariosController < ApplicationController
   end
 
   def show
-    if session[:usuario].nil? || session[:usuario].id != params[:id].to_i
+    if true # session[:usuario].nil? || session[:usuario].id != params[:id].to_i
       render "public/404.html", status: :not_found
     end
   end
