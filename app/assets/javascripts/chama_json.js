@@ -69,7 +69,7 @@ function chamaJson( registro, num_pagina ) {
                        '<tr>' +
                             '<td class="c"> CRM             </td>' +
                             '<td class="c"> Nome            </td>' +
-                            '<td class="c"> Atraso          </td>' +
+                            '<td class="c"> Atraso médio    </td>' +
                             '<td class="c"> Nº de consultas </td>' +
                         '</tr>' 
 
