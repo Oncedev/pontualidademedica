@@ -7,8 +7,5 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     config.vm.network :forwarded_port, guest: 3000, host: 3000    # rails
     
-    Vagrant.configure("2") do |config|
-      
-       
-    end
+    config.vm.provision "shell", path: "script.sh"
 end
