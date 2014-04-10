@@ -11,7 +11,7 @@ end
 
 class NaoFuturaValidator < ActiveModel::EachValidator
   def validate_each(consulta, attr, value)
-    unless value.is_a?(Date)? value <= Date.today : false
+    if value.is_a?(Date)? value > Date.today : false
       consulta.errors[attr] << "está no futuro"
     end
   end 
