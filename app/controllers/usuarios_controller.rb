@@ -17,7 +17,13 @@ class UsuariosController < ApplicationController
   def autenticar
     usuario = Usuario.find_by email: params[:usuario][:email]
 
-    if usuario.nil? || usuario.senha != params[:usuario][:senha]
+    if params[:usuario][:email].empty?
+      flash[:error] = "Insira seu email"
+      respond_to { |f| f.html { redirect_to action: "login" } }
+    elsif params[:usuario][:senha].empty?
+      flash[:error] = "Insira sua senha"
+      respond_to { |f| f.html { redirect_to action: "login" } }
+    elsif usuario.nil? || usuario.senha != params[:usuario][:senha]
       flash[:error] = "Combinação de usuário e senha inexistente"
       respond_to { |f| f.html { redirect_to action: "login" } }
     else
