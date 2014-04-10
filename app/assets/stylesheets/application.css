@@ -1,3 +1,8 @@
+#textos {
+	width:50%;
+	color:#666666;
+}
+
 h1,h2,h3 {
 	color:#333333;
 	opacity:0.60;
@@ -63,13 +68,33 @@ input {
 	width:300px;
 	margin-left:3px;
 }
+.field input {
+	margin-top:10px!important;
+	margin-bottom:10px!important;
+}
+/*Class aparece na página de cadastro de médicos colocada pelo rails*/
+.field_with_errors {
+	padding:0!important;
+	margin:0!important;
+	height:auto!important;
+	display:inline;
+}
 .anonimo {/*Input check box*/
 	width:30px;
 	box-shadow:none;
 	margin-left:0;
 }
-#table_conteudo {
+
+#div_encapsula_buttun_cadastrar {
+	width:327px;
+	height:50px;
 	
+}
+#button_registrar {
+	float:right;
+}
+
+#table_conteudo {
 	margin:auto;
 	padding:10px;
 }
@@ -142,14 +167,21 @@ footer {
 	padding-top:10px;
 	padding-bottom:10px;
 	margin-top:10px;
+	background: #ebebeb;
 	background-image:-webkit-linear-gradient(white,#f7f7f7,#ebebeb);
 	background-image:-moz-linear-gradient(white,#f7f7f7,#ebebeb);
 	background-image:-o-linear-gradient(white,#f7f7f7,#ebebeb);
 	background-image:-ms-linear-gradient(white,#f7f7f7,#ebebeb);
 	border-top:1px solid gray;
+	border-bottom:1px solid gray;
+	line-height: 30px;
 }
 
-
+footer a {
+	margin-left:10px;
+	color:gray;
+	text-decoration:none;
+}
 
 #none {
 	clear:both;
@@ -260,6 +292,16 @@ input {
 	padding-left:13px;
 }
 
+#div_encapsula_buttun_cadastrar {
+	width:227px;
+	height:50px;
+	
+}
+
+#textos {
+	width:80%;
+}
+
 
 }
 /* END 1024 ================================================== */
@@ -361,6 +403,11 @@ input {
    	border-bottom:1px solid silver!important;
    	
    }
+
+   #textos {
+	width:100%;
+   }
+
 }
 
 /* END MENOR RESOLUÇÃO 320================================================== */
@@ -437,6 +484,7 @@ h2 a {
 	background-image:-ms-linear-gradient(#5b9cbd,#006699);
 	color:white;
 	float:right;
+	z-index:100;
 }
 #anterior {
 	border-right:1px solid white;
@@ -453,10 +501,11 @@ h2 a {
 
 
 #show_num_paginas {
-	height:20px;
-	clear: both;
+	
+	text-align:left;
+	float:left;
 }
+
 small {
 	color:#9c2121;
 }
-

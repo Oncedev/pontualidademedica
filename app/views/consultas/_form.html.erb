@@ -48,24 +48,18 @@ $(document).ready(function() {
     <%= f.text_field :hora_atendimento, class: "time_field" %>
   </div>
   <br>
-  <div class="actions">
+  <div class="actions" id="div_encapsula_buttun_cadastrar">
     <button type="submit" id="button_registrar">Registrar consulta</button>
   </div>
 
-  <br>
+<br>
 <br>
 <br>
 
 <% end %>
 </section>
 
-<script>
- var pesquisa_crm = document.querySelector('#pesquisa_crm'),
-     button_pesquisar = document.querySelector('#button_pesquisar');
 
-     pesquisa_crm.style.display = 'none';
-     button_pesquisar.style.display = 'none';
-</script>
 
 
 
