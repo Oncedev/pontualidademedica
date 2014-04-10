@@ -13,7 +13,12 @@ class UsuariosControllerTest < ActionController::TestCase
 
   test "should create usuario" do
     assert_difference('Usuario.count') do
-      post :create, usuario: { email: "eu@eu.eu.eu", nome: "Eu", senha: "eu" }
+      post :create, usuario: {
+        email: "eu@eu.eu.eu",
+        nome: "Eu",
+        senha: "eu",
+        senha_confirmation: "eu"
+      }
     end
 
     assert_redirected_to controller: "medicos", action: "index"

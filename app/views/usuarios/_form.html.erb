@@ -39,6 +39,14 @@
             <%= f.password_field :senha, placeholder: 'Senha' %>
           </td>
         </tr>
+         <tr>
+          <td><label for="senha_confirmation">Confirme a senha</label></td>
+        </tr>
+        <tr> 
+          <td>
+            <%= f.password_field :senha_confirmation, placeholder: 'Senha' %>
+          </td>
+        </tr>
         <tr><td><%= hidden_field_tag "redir", params[:redir] %></td></tr>
         <tr> 
           <td>

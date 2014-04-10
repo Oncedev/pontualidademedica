@@ -29,6 +29,7 @@ pt_BR:
         nome: "Nome"
         email: "Email"
         senha: "Senha"
+        senha_confirmation: "Confirmação de senha"
       consulta:
         usuario: "Usuário"
         medico: "Médico"
@@ -53,6 +54,8 @@ pt_BR:
               blank: "é obrigatório"
               taken: "já está cadastrado"
             senha:
+              blank: "é obrigatória"
+            senha_confirmation:
               blank: "é obrigatória"
         consulta:
           attributes:
