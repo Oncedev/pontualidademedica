@@ -66,7 +66,7 @@ header:hover {
 #pesquisa input {
 	width:200px;
 }
-input {
+input, select {
 	padding:10px;
 	border:1px solid gray;
 	border-radius:3px;
@@ -74,6 +74,9 @@ input {
 	outline:none;
 	width:300px!important;
 	margin-left:3px;
+}
+select {
+	width:323px!important;
 }
 .field input {
 	margin-top:10px!important;
@@ -171,7 +174,8 @@ footer {
 	width:100%;
 	min-height:20px;
 	background:#323b44;
-	padding:3px;
+	padding-top:3px;
+	padding-bottom:3px;
 	margin-top:10px;
 	background: #ebebeb;
 	background-image:-webkit-linear-gradient(white,#f7f7f7,#ebebeb);
@@ -303,6 +307,9 @@ span {
 input {
 	width:200px;
 }
+select {
+	width:323px!important;
+}
 
 #area_paginacao {
 	width:97%!important;
@@ -330,6 +337,7 @@ input {
    #pesquisa input {
    	width:200px;
    }
+ 
    /* Diminui o tamanho da fonte da tabela */
    #table_conteudo tr {
 	font-size:16px;
@@ -339,6 +347,9 @@ input {
    .field input {
     	width:60%!important;
     }
+    select {
+	width:63%!important;
+   }
 
     #div_encapsula_buttun_cadastrar button {
 	    float:left;
@@ -430,6 +441,9 @@ input {
     
     .field input {
     	width:90%!important;
+    }
+    select {
+	width:97%!important;
     }
 }
 
