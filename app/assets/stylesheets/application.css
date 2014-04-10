@@ -4,7 +4,6 @@ html, body {
 .geral {
 	min-height:100%!important;
 	position: relative;
-	padding-bottom:30px!important;
 }
 #textos {
 	width:50%;
@@ -258,10 +257,11 @@ nav {
 	font-family:candara;
 	padding:10px;
 	margin:auto;
+	padding-bottom:40px!important;
 }
 
 #section_medicos_atrasados {
-	padding-bottom: 30px;
+	/*padding-bottom: 30px;*/
 }
 
 
