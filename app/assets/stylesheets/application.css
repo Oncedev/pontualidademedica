@@ -169,10 +169,9 @@ button {
 
 footer {
 	width:100%;
-	min-height:30px;
+	min-height:20px;
 	background:#323b44;
-	padding-top:10px;
-	padding-bottom:10px;
+	padding:3px;
 	margin-top:10px;
 	background: #ebebeb;
 	background-image:-webkit-linear-gradient(white,#f7f7f7,#ebebeb);
@@ -181,9 +180,12 @@ footer {
 	background-image:-ms-linear-gradient(white,#f7f7f7,#ebebeb);
 	border-top:1px solid gray;
 	border-bottom:1px solid gray;
-	line-height: 30px;
+	line-height:20px;
 	position:absolute;
 	bottom: 0;
+}
+footer a {
+	font-size:13px;
 }
 
 footer a {
@@ -307,11 +309,6 @@ input {
 	padding-left:13px;
 }
 
-#div_encapsula_buttun_cadastrar {
-	width:227px;
-	height:50px;
-	
-}
 
 #textos {
 	width:80%;
@@ -338,6 +335,14 @@ input {
 	font-size:16px;
 	color:#333333;
    }
+
+   .field input {
+    	width:60%!important;
+    }
+
+    #div_encapsula_buttun_cadastrar button {
+	    float:left;
+	}
 
 }
 /* END 720 ================================================== */
@@ -422,7 +427,10 @@ input {
    #textos {
 	width:100%;
    }
-
+    
+    .field input {
+    	width:90%!important;
+    }
 }
 
 /* END MENOR RESOLUÇÃO 320================================================== */
