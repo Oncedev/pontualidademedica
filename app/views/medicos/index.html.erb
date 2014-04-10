@@ -1,3 +1,4 @@
+
 <section id="section_medicos_atrasados" class="section_class_padrao">
    <section id="whapper_conteudo">
 
@@ -48,6 +49,7 @@
    <br>
    <br>
    <br>
+
 </section>
 
  <script type="text/javascript">
@@ -101,19 +103,15 @@
 
             $('#anterior').click( function() {
 
-                pagina -= 1;
+              if ( pagina == 1 ) {
+                  return false;
+              }
 
-                if ( pagina = 1 ) {
-                    pagina = 1;
-                    chamaJson( registro , pagina );
-                }
-                else {
-                   chamaJson( registro , pagina );
-                   console.log('else'+ pagina);
-                   return false;
-                }
- 
-           }); // end click...
+                pagina -= 1;
+                chamaJson( registro , pagina );
+                return false;
+
+             }); // end click...
 
 ///////////////////////////////////////////////////////////////////
 // SE O NÚMERO DE PÁGINAS FOR IGUAL A '1' OPACA O BUTTON 'ANTERIOR'

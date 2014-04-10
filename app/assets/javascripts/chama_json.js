@@ -142,7 +142,6 @@
                            $('#anterior').show();
                            $('#proximo').show();
                            $('#show_num_paginas').show();
-                           console.log('mais de 10');
 
                       }
 
