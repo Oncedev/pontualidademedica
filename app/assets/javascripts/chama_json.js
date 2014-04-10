@@ -67,6 +67,7 @@
 
                      area.innerHTML += 
                        '<tr>' +
+                            '<td class="c"> Estado          </td>' +
                             '<td class="c"> CRM             </td>' +
                             '<td class="c"> Nome            </td>' +
                             '<td class="c"> Atraso médio    </td>' +
@@ -101,6 +102,7 @@
                         area.innerHTML += 
 
                          '<tr>' +
+                            '<td>' + meuJSON.medicos[ cont ].estado + '</td>' +
                             '<td>' + meuJSON.medicos[ cont ].CRM + '</td>' +
                             '<td>' + meuJSON.medicos[ cont ].nome + '</td>' +
                             '<td id="td_atraso">' + saidaAtrasoFormato + '</td>'+

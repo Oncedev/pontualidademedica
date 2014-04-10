@@ -3,6 +3,7 @@ json_array = {
   medicos: @medicos.map do |m|
     {
       id: m[:medico][:id],
+      estado: m[:medico].estado.nome,
       CRM: m[:medico][:CRM],
       nome: m[:medico][:nome],
       atraso_medio: m[:atraso_medio],
