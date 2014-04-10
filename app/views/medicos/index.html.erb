@@ -17,7 +17,6 @@
 
     <table id="table_conteudo" class="table_conteuso">
       <tr class="tr_cabecalho">
-        <td class="c">Estado</td>
         <td class="c">CRM</td>
         <td class="c">Nome</td>
         <td class="c">Atraso médio</td>
@@ -25,8 +24,7 @@
       </tr>
       <% @medicos.each do |m| %>
         <tr>
-          <td><%= m[:medico].estado.nome %></td>
-          <td><%= m[:medico].CRM %></td>
+          <td><%= m[:medico].estado.nome + " " + m[:medico].CRM %></td>
           <td><%= m[:medico].nome %></td>
           <% if m[:atraso_medio] < 60 %>
             <% atraso_formatado = "#{m[:atraso_medio]} m" %>
