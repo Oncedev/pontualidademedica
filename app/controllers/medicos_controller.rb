@@ -16,7 +16,7 @@ class MedicosController < ApplicationController
 
       Medico.where("nome_pesquisavel like ?", "%#{nome}%")
     else
-      Medico.where CRM: crm
+      Medico.where CRM: crm.to_s
     end
 
     numero_medicos = @medicos.clone.size # Tem que ser clonado porque o size executa a query
@@ -33,12 +33,10 @@ class MedicosController < ApplicationController
 
       respond_to do |format|
         format.html { limit = 10 if limit.nil? }
-        format.json {}
+        format.json { limit = numero_medicos if limit.nil? }
       end
 
       # TODO: Mandar para SQL
-      limit = numero_medicos if limit.nil?
-
       @medicos.sort_by!(&:atraso_medio).reverse!
       @medicos = @medicos[offset..offset + limit - 1]
       @medicos.map! do |m|
