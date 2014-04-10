@@ -1,6 +1,9 @@
 <section class="section_class_padrao">
+
   <h2>Cadastre-se preenchendo o formulário abaixo</h2>
+
  <section id="whapper_conteudo">
+
     <%= form_for(@usuario, :html => {:id  =>"form_cadastro"}) do |f| %>
     <% if @usuario.errors.any? %>
       <div id="error_explanation">
@@ -12,55 +15,41 @@
       </div>
       <% end %>
 
-      <table class="tabela_cadastro">
-        <tr>
-          <td><label for="nome">Nome</label></td>
-        </tr>
-       <tr> 
-          <td>
-            <%= f.text_field :nome, placeholder: 'Exemplo:Mariana' %>
-          </td>
-        </tr>
+     
+        <div class="field">
+          <label for="nome">Nome</label><br>
+          <%= f.text_field :nome, placeholder: 'Exemplo:Mariana' %>
+        </div>
 
-         <tr>
-          <td><label for="email">Email</label></td>
-        </tr>
-        <tr> 
-          <td>
-            <%= f.text_field :email, placeholder: 'Exemplo:mariana@gmail.com' %>
-          </td>
-        </tr>
+        <div class="field">
+          <label for="email">Email</label>
+        </div>
+        
+        <div class="field">
+          <%= f.text_field :email, placeholder: 'Exemplo:mariana@gmail.com' %><br>
+          <label for="senha">Senha</label>
+        </div>
 
-         <tr>
-          <td><label for="senha">Senha</label></td>
-        </tr>
-        <tr> 
-          <td>
-            <%= f.password_field :senha, placeholder: 'Senha' %>
-          </td>
-        </tr>
-         <tr>
-          <td><label for="senha_confirmation">Confirme a senha</label></td>
-        </tr>
-        <tr> 
-          <td>
-            <%= f.password_field :senha_confirmation, placeholder: 'Senha' %>
-          </td>
-        </tr>
-        <tr><td><%= hidden_field_tag "redir", params[:redir] %></td></tr>
-        <tr> 
-          <td>
-            <button type="submit" id="cadastrar">Cadastrar</button>
-          </td>
-        </tr>
+        <div class="field">
+          <%= f.password_field :senha, placeholder: 'Senha' %><br>
+          <label for="senha_confirmation">Confirme a senha</label>
+        </div>
+        
+        <div class="field">
+          <%= f.password_field :senha_confirmation, placeholder: 'Senha' %>
+          <%= hidden_field_tag "redir", params[:redir] %><br>
+        </div>
 
-      </table>
-
-
-    <% end %>
-      <div id="none"></div>
-  </section>
+        <div class="actions" id="div_encapsula_buttun_cadastrar">
+            <button type="submit" id="cadastrar" class="butons_right">Cadastrar</button>
+        </div><!-- end incapsula -->
+      
 
 </section>
+</section>
+    <% end %>
+<div id="none"></div>
+ 
+
 
 

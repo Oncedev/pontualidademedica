@@ -2,8 +2,8 @@
   <h2>Faça login inserindo seus dados de acesso!</h2>
  <section id="whapper_conteudo">
 
-<%= form_for(@usuario, url: { action: "autenticar", method: "post" }) do |f| %>
-  <% if !flash[:error].nil? %>
+  <%= form_for(@usuario, url: { action: "autenticar", method: "post" }) do |f| %>
+    <% if !flash[:error].nil? %>
     <p><%= flash[:error] %></p>
   <% end %>
 
@@ -11,14 +11,16 @@
     <%= f.label :email %><br>
     <%= f.text_field :email,  placeholder: 'Exemplo:mariana@gmail.com' %>
   </div>
+
   <div class="field">
     <%= f.label :senha %><br>
     <%= f.password_field :senha,  placeholder: 'Digite sua senha' %>
   </div>
   <%= hidden_field_tag "redir", params[:redir] %>
-  <div class="actions">
-    <button type="submit">Entrar</button>
-  </div>
+
+  <div class="actions" id="div_encapsula_buttun_cadastrar">
+    <button type="submit" class="butons_right">Entrar</button>
+  </div><!-- end encapsula -->
 <% end %>
 
 </section>
