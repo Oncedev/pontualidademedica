@@ -76,7 +76,11 @@ input, select {
 	margin-left:3px;
 }
 select {
-	width:323px!important;
+	/*width:323px!important;*/
+	width:auto!important;
+}
+#crm {
+	width:226px!important;
 }
 .field input {
 	margin-top:10px!important;
@@ -307,9 +311,7 @@ span {
 input {
 	width:200px;
 }
-select {
-	width:323px!important;
-}
+
 
 #area_paginacao {
 	width:97%!important;
@@ -347,11 +349,11 @@ select {
    .field input {
     	width:60%!important;
     }
-    select {
-	width:63%!important;
-   }
+   #crm {
+	width:49%!important;
+  }
 
-    #div_encapsula_buttun_cadastrar button {
+  #div_encapsula_buttun_cadastrar button {
 	    float:left;
 	}
 
@@ -363,9 +365,13 @@ select {
     	float:left;
 
     }
-    #menu_desktop  li{
+    #menu_desktop  li {
     	margin:auto;
     }
+
+   #crm {
+	width:45%!important;
+  }
 }
 /* 480 ================================================== */
 @media only screen and (max-width: 480px) { 
@@ -393,7 +399,9 @@ select {
    	 width:100%;
    	 margin-left:0px;
    }
-
+   #crm {
+	width:42%!important;
+   }
 
    
 }
@@ -442,8 +450,12 @@ select {
     .field input {
     	width:90%!important;
     }
-    select {
-	width:97%!important;
+
+   #crm {
+	width:63%!important;
+   }
+    #div_encapsula_buttun_cadastrar {
+    	width:200px!important;
     }
 }
 
