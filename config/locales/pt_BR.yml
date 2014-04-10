@@ -25,6 +25,7 @@ pt_BR:
       medico:
         nome: "Nome do médico"
         CRM: "CRM do médico"
+        estado: "Estado"
       usuario:
         nome: "Nome"
         email: "Email"
@@ -46,6 +47,8 @@ pt_BR:
             CRM:
               blank: "é obrigatório"
               taken: "já está registrado para outro médico"
+            estado:
+              blank: "deve ser selecionado"
         usuario:
           attributes:
             nome:

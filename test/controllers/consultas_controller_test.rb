@@ -4,6 +4,7 @@ class ConsultasControllerTest < ActionController::TestCase
   setup do
     @consulta = consultas(:one)
     @medico = medicos(:carlos)
+    @estado = estados(:bahia)
     session[:usuario] = usuarios(:fulano)
   end
 
@@ -23,7 +24,8 @@ class ConsultasControllerTest < ActionController::TestCase
           hora_marcacao: @consulta.hora_marcacao
         },
         CRM_medico: @medico.CRM,
-        nome_medico: @medico.nome
+        nome_medico: @medico.nome,
+        estado_medico: @estado.id
       )
     end
 

@@ -50,9 +50,13 @@ class ConsultasController < ApplicationController
     else
       par = consulta_params
 
-      @medico = Medico.new CRM: params[:CRM_medico], nome: params[:nome_medico]
+      @medico = Medico.new(
+        CRM: params[:CRM_medico],
+        nome: params[:nome_medico],
+        estado_id: params[:estado_medico]
+      )
       if !medico_created = @medico.save
-        m = Medico.find_by CRM: params[:CRM_medico]
+        m = Medico.find_by CRM: params[:CRM_medico], estado_id: params[:estado_medico]
         if !m.nil? && @medico.nome == m.nome
           @medico = m
           medico_created = false

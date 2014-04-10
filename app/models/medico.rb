@@ -1,7 +1,10 @@
 class Medico < ActiveRecord::Base
-  validates :CRM, presence: true, uniqueness: true, apenas_numeros: true
+  validates :CRM, presence: true, apenas_numeros: true
   validates :nome, presence: true, apenas_letras: true
+  validates :estado, presence: true
+  validates_uniqueness_of :CRM, scope: :estado_id
   has_many :consultas
+  belongs_to :estado
 
   def nome=(val)
     self[:nome] = val

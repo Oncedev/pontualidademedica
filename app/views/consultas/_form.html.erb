@@ -32,6 +32,14 @@ $(document).ready(function() {
     <%= text_field_tag "nome_medico", @medico.nome, id: 'nome' %>
   </div>
   <div class="field">
+    <%= label_tag "Estado" %><br>
+    <%= select_tag "estado_medico",
+      options_from_collection_for_select(
+        Estado.all, "id", "nome", @medico.estado_id
+      ), include_blank: true
+    %>
+  </div>
+  <div class="field">
     <%= label_tag "CRM do médico" %><br>
     <%= number_field_tag "CRM_medico", @medico.CRM, id: 'crm' %>
   </div>

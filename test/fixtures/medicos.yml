@@ -3,7 +3,9 @@
 carlos:
   CRM: 123456
   nome: Carlos Pereira
+  estado: bahia
 
 marcelo:
   CRM: 12344
   nome: Marcelo Santoa
+  estado: sergipe

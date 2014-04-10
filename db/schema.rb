@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140407121800) do
+ActiveRecord::Schema.define(version: 20140410192355) do
 
   create_table "consultas", force: true do |t|
     t.integer  "medico_id"
@@ -24,12 +24,19 @@ ActiveRecord::Schema.define(version: 20140407121800) do
     t.date     "data_consulta"
   end
 
+  create_table "estados", force: true do |t|
+    t.string   "nome",       limit: 2
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "medicos", force: true do |t|
     t.string   "CRM"
     t.string   "nome"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "nome_pesquisavel"
+    t.integer  "estado_id"
   end
 
   create_table "usuarios", force: true do |t|

@@ -1,19 +1,27 @@
 require 'test_helper'
 
 class MedicoTest < ActiveSupport::TestCase
+  setup do
+    @estado = estados(:bahia)
+  end
+
   test "medico sem nada" do
     medico = Medico.new
     assert !medico.save, "Medico vazio"
   end
 
   test "medico sem nome" do
-    medico = Medico.new CRM: 1001
+    medico = Medico.new CRM: 1001, estado: @estado
     assert !medico.save, "Medico sem nome"
   end
 
   test "medico sem crm" do
-    medico = Medico.new nome: "Alberto Costa"
+    medico = Medico.new nome: "Alberto Costa", estado: @estado
     assert !medico.save, "Medico sem CRM"
+  end
+  
+  test "medico sem estado" do
+    assert !Medico.new(nome: "Alberto Costa", CRM: "112111").save, "Salvou medico sem estado"
   end
 
   test "crm ja existente" do
@@ -22,7 +30,7 @@ class MedicoTest < ActiveSupport::TestCase
   end
 
   test "medico normal" do
-    medico = Medico.new nome: "Roberta dos Santos", CRM: 1001
+    medico = Medico.new nome: "Roberta dos Santos", CRM: 1001, estado: @estado
     assert medico.save, "Medico normal nao foi salvo"
   end
 
@@ -39,5 +47,14 @@ class MedicoTest < ActiveSupport::TestCase
   test "contagem de consultas" do
     n = medicos(:carlos).numero_consultas
     assert n == 2, "Nao esta contando (n e #{n}, mas devia ser 2)"
+  end
+
+  test "mesmo CRM estados diferentes" do
+    sergipe = estados(:sergipe)
+    Medico.new(nome: "Joaquim", CRM: "987", estado: @estado).save
+    assert Medico.new(
+      nome: "Joaquina",
+      CRM: "987", estado: sergipe
+    ).save, "Nao salvou medico com mesmo CRM em outro estado"
   end
 end
