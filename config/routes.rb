@@ -5,6 +5,7 @@ Ponutalidademedica::Application.routes.draw do
   get "usuarios/logout"
   get "usuarios/login"
   get "sobre", controller: "sobre", action: "index"
+  get "busca_medico", controller: "medicos", action: "busca_medico"
   resources :usuarios
 
   resources :medicos

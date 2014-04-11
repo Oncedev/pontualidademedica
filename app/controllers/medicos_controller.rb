@@ -57,6 +57,26 @@ class MedicosController < ApplicationController
     end
   end
 
+  def busca_medico
+    @nome_medico = {
+      "BA" => {
+        "1234" => "ADALBERTO SILVA",
+        "3321" => "JUCA CAIRES"
+      },
+      "SE" => {
+        "121" => "MARCELA SCHWEISSTEINGER",
+        "5221" => "LUCIOLA MASCARENHAS"
+      }
+    }[params[:uf]]
+
+    @nome_medico = @nome_medico[params[:crm]] unless @nome_medico.nil?
+
+    render(
+      json: { erro: "Nenhum médico encontrado para o CRM" }.to_json,
+      status: :not_found
+    ) if @nome_medico.nil?
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_medico
