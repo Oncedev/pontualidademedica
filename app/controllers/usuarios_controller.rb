@@ -3,7 +3,7 @@ class UsuariosController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   def login
-    @usuario = Usuario.new
+    @usuario = Usuario.new email: params[:email]
 
     respond_to do |format|
       if !session[:usuario].nil?
@@ -17,18 +17,26 @@ class UsuariosController < ApplicationController
   def autenticar
     usuario = Usuario.find_by email: params[:usuario][:email]
 
+    valid_auth = false
     if params[:usuario][:email].empty?
       flash[:error] = "Insira seu email"
-      respond_to { |f| f.html { redirect_to action: "login" } }
     elsif params[:usuario][:senha].empty?
       flash[:error] = "Insira sua senha"
-      respond_to { |f| f.html { redirect_to action: "login" } }
     elsif usuario.nil? || usuario.senha != params[:usuario][:senha]
       flash[:error] = "Combinação de usuário e senha inexistente"
-      respond_to { |f| f.html { redirect_to action: "login" } }
     else
+      valid_auth = true
       entrar_com usuario
     end
+
+    respond_to do |f|
+      f.html do
+        redirect_to(
+          action: "login",
+          email: params[:usuario][:email]
+        )
+      end
+    end unless valid_auth
   end
 
   def logout
