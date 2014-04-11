@@ -74,6 +74,7 @@ class ConsultasController < ApplicationController
 
       respond_to do |format|
         if @consulta.save && @medico.valid?
+          flash[:notice] = "Consulta registrada"
           format.html { redirect_to controller: "medicos" }
           format.json { render action: 'show', status: :created, location: @consulta }
         else
