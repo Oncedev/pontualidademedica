@@ -72,7 +72,7 @@ class MedicosController < ApplicationController
     @nome_medico = @nome_medico[params[:crm]] unless @nome_medico.nil?
 
     render(
-      json: { erro: "Nenhum médico encontrado para o CRM" }.to_json,
+      json: { erro: "Nenhum médico foi encontrado para este CRM" }.to_json,
       status: :not_found
     ) if @nome_medico.nil?
   end

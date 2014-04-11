@@ -457,6 +457,10 @@ input {
     #div_encapsula_buttun_cadastrar {
     	width:200px!important;
     }
+
+    #table_conteudo {
+    	font-size:25px;
+    }
 }
 
 /* END MENOR RESOLUÇÃO 320================================================== */
@@ -561,4 +565,7 @@ small {
 .flash {
 	color:#892525;
 	font-size:20px;
+}
+#erro_crm {
+	color:#923636;
 }

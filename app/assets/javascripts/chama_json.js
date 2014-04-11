@@ -29,8 +29,7 @@
                            $('#anterior').hide();
                            $('#proximo').hide();
                            $('#show_num_paginas').hide();
-
-                            return false;
+                           return false;
                          }
                          else {
                            $('#anterior').show();
@@ -101,13 +100,35 @@
                         area.innerHTML += 
 
                          '<tr>' +
-                            '<td>' + meuJSON.medicos[ cont ].CRM + '</td>' +
-                            '<td>' + meuJSON.medicos[ cont ].nome + '</td>' +
-                            '<td id="td_atraso">' + saidaAtrasoFormato + '</td>'+
+                            '<td>' + meuJSON.medicos[ cont ].CRM              + '</td>' +
+                            '<td>' + meuJSON.medicos[ cont ].nome             + '</td>' +
+                            '<td id="td_atraso">' + saidaAtrasoFormato        + '</td>' +
                             '<td>' + meuJSON.medicos[ cont ].numero_consultas + '</td>' +
                          '</tr>'
 
                      } // end for...   
+
+
+///////////////////////////////////////////////////////////
+// SUMINDO COM A PÁGINAÇÃO...
+//////////////////////////////////////////////////////////  
+
+                     if ( meuJSON.medicos.length <= 10 ) {
+                           
+                           $('#anterior').hide();
+                           $('#proximo').hide();
+                           $('#show_num_paginas').hide();
+
+                      }
+                      else {
+
+                           $('#anterior').show();
+                           $('#proximo').show();
+                           $('#show_num_paginas').show();
+
+                      }
+                      
+////////////////////////////////////////////////////////
 
                  } // end complete...
              });

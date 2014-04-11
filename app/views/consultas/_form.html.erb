@@ -28,17 +28,10 @@ $(document).ready(function() {
 
 
   <div class="field">
-    <%= label_tag "Nome do médico" %><br>
-    <%= text_field_tag "nome_medico", @medico.nome, id: 'nome' %>
-  </div>
- 
-    
- 
-  <div class="field">
     <%= label_tag "Estado" %>
 
   <!------------AFASTA O LABEL ESTADO DO LABEL CRM------------------------>
-  
+
     &nbsp &nbsp &nbsp &nbsp &nbsp
 
   <!------------------------------------>
@@ -54,7 +47,17 @@ $(document).ready(function() {
 
   <%= number_field_tag "CRM_medico", @medico.CRM, id: 'crm' %>
 
+   <p id="erro_crm"></p>
+
   </div>
+
+
+  <div class="field">
+    <%= label_tag "Nome do médico" %><br>
+    <%= text_field_tag "nome_medico", @medico.nome, id: 'nome' %>
+  </div>
+ 
+    
   <div class="field">
     <%= f.label :data, "Data" %><br>
     <%= f.text_field :data_consulta, class: "date_picker" %>
@@ -79,6 +82,82 @@ $(document).ready(function() {
 <% end %>
 </section>
 
+
+<script>
+
+ $(document).ready( function() {
+    
+////////////////////////////////////////////////////
+// FUNÇÕES 'change' CAPTA A MUDANÇA DOS CAMPOS...  
+///////////////////////////////////////////////////
+
+ $('#estado_medico').change( function() {
+      console.log('mudou estado');
+      buscaMedico();
+
+  }); 
+
+  $('#crm').change( function() {
+      console.log('mudou crm');
+      buscaMedico();
+
+  }); 
+
+//////////////////////////////////////////////
+
+///////////////////////////////////////////////////////////////
+// FUNÇÃO 'buscaMedico' VERIFICA SE EXISTE CRM DIGITADO...
+//////////////////////////////////////////////////////////////
+
+function buscaMedico() {
+
+   if ( $('#estado_medico').val() != '' && $('#crm').val() != '' ) {
+   
+         var erro_crm = document.querySelector('#erro_crm'),
+             nome =  document.querySelector('#nome');
+             
+       $.ajax({
+
+           url: "/busca_medico.json",
+           data: {
+              uf: $('#estado_medico option:selected').text(),
+              crm: $('#crm').val()
+            },
+            complete: function( data ) {
+                var retorno = JSON.parse( data.responseText ); 
+
+                   if ( data.status == '404' ) {
+
+                       $( erro_crm ).show('slow');
+                       erro_crm.innerHTML = retorno.erro;
+                       
+                   }
+
+                   else if ( data.status == '200' ) {
+
+                       nome.value = retorno.nome;
+                       $( erro_crm ).hide('slow');
+                       nome.readOnly = 'true';
+                      
+                   }
+
+            } // end complete...
+
+     }); // end ajax...
+
+  } 
+
+  else {
+      console.log('não manda');
+    }  
+
+  } // end busca...
+
+////////////////////////////////////////////////////////////////////
+
+}); // end jquery...
+
+</script>
 
 
 
