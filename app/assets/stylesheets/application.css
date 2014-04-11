@@ -452,7 +452,7 @@ input {
     }
 
    #crm {
-	width:63%!important;
+	width:59%!important;
    }
     #div_encapsula_buttun_cadastrar {
     	width:200px!important;
@@ -557,4 +557,8 @@ h2 a {
 
 small {
 	color:#9c2121;
+}
+.flash {
+	color:#892525;
+	font-size:20px;
 }
