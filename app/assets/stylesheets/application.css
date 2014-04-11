@@ -43,7 +43,6 @@ header {
 	background-image:-o-linear-gradient(white,#f7f7f7,#ebebeb);
 	background-image:-ms-linear-gradient(white,#f7f7f7,#ebebeb);
 	border-bottom:1px solid gray;
-	border-top:1px solid gray;
 	background-image:url('/assets/fundo_header.png');
 }
 header:hover {
@@ -110,19 +109,19 @@ select {
 
 #table_conteudo {
 	margin:auto;
-	padding:10px;
+	padding-top:10px;
 }
 #table_conteudo tr td {
 	padding:10px;
 	width:400px;
 	background: #f5f0f0;
+	border:1px solid #dedfe1;
 }
 #table_conteudo tr td {
 	
-	border:1px solid silver;
+	/*border:1px solid silver;*/
 }
 #table_conteudo tr:hover {	
-	font-weight: bold;
 	background: #e1f3fc;
 	color: #3886ad;
 }
@@ -130,7 +129,7 @@ select {
 .c { /* classe nas tabelas*/
 	
 	font-weight:bold;
-	background:#e1dcdc!important;
+	/*background:#e1dcdc!important;*/
 }
 .tr_cabecalho:hover {
 	background: #f5f0f0!important;
@@ -146,9 +145,9 @@ select {
 button {
 	padding:10px;
 	background-image:-webkit-linear-gradient(#f7f7f7,white,#ebebeb);
-    background-image:-moz-linear-gradient(#f7f7f7,#ebebeb);
-    background-image:-o-linear-gradient(#f7f7f7,#ebebeb);
-    background-image:-ms-linear-gradient(#f7f7f7,#ebebeb);
+    background-image:-moz-linear-gradient(#f7f7f7,white,#ebebeb);
+    background-image:-o-linear-gradient(#f7f7f7,white,#ebebeb);
+    background-image:-ms-linear-gradient(#f7f7f7,white,#ebebeb);
     border:1px solid gray;
     border-radius:3px;
 }
@@ -157,12 +156,7 @@ button {
 	width:100%;
 	padding-top:10px;
 	padding-bottom:10px;
-	border-bottom:1px solid silver;
-	border-top:1px solid silver;
-	background-image:-webkit-linear-gradient(#f7f7f7,#ebebeb);
-    background-image:-moz-linear-gradient(#f7f7f7,#ebebeb);
-    background-image:-o-linear-gradient(#f7f7f7,#ebebeb);
-    background-image:-ms-linear-gradient(#f7f7f7,#ebebeb);
+	border-bottom:1px solid #808080;
 }
 
 .section_class_padrao {
@@ -171,7 +165,7 @@ button {
 	min-height:300px;
 	padding:10px;
 	margin:auto;
-	margin-top:10px;
+	padding-top:30px;
 }
 
 footer {
@@ -210,8 +204,6 @@ nav {
 	border-top:1px solid silver;
 	padding-top:5px;
 	padding-bottom:5px;
-
-	
 }
 
 #center_menu {
@@ -258,7 +250,7 @@ nav {
 	font-weight:bold;
 }
 #menu_desktop a:hover {
-	border:1px solid silver;
+	opacity: 0.90;
 }
 
 
@@ -385,7 +377,7 @@ input {
    }
 
    #logo {
-   	width:73%;
+   	width:70%;
    }
 
    #menu_desktop {
@@ -403,7 +395,10 @@ input {
 	width:42%!important;
    }
 
-   
+   #menu_desktop a {
+   	line-height: 10px;
+   }
+
 }
 /* END 480 ================================================== */
 
@@ -433,6 +428,9 @@ input {
    	margin-top:13px;
    }
     
+    header {
+    	height:70px;
+    }
    .barra_sair {
    	 text-align:center!important;
    }
@@ -471,19 +469,20 @@ input {
 	width:auto;
 	padding-top:5px;
 	padding-bottom:5px;
-	background:#006699;
 	background-image:-webkit-linear-gradient(#5b9cbd,#006699);
 	background-image:-moz-linear-gradient(#5b9cbd,#006699);
 	background-image:-o-linear-gradient(#5b9cbd,#006699);
 	background-image:-ms-linear-gradient(#5b9cbd,#006699);
-	color:white;
 	text-align:right;
 	opacity:0.80;
+	border-bottom:1px solid #eaf4fb;
+	background:#006699;
 }
 #barra_sair  a {
   margin-right:30px;
   text-decoration:none;
   color:white;
+  font-size:15px;
 }
 #barra_sair a:hover {
   text-decoration:underline;
@@ -494,6 +493,7 @@ input {
 	padding:0px;
 	border:0px;
 	color:#bee5f9;
+	font-size:13px;
 }
 
 
