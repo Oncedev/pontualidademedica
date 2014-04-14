@@ -78,7 +78,6 @@ $(document).ready(function() {
 <br>
 <br>
 <br>
-
 <% end %>
 </section>
 
@@ -121,6 +120,11 @@ function buscaMedico() {
               uf: $('#estado_medico option:selected').text(),
               crm: $('#crm').val()
             },
+            beforeSend: function() {
+               nome.value = 'Carregando...';
+               erro_crm.innerHTML = '<%= image_tag("ajax-loader.gif") %>';
+
+            },
             complete: function( data ) {
                 var retorno = JSON.parse( data.responseText ); 
 
@@ -135,7 +139,7 @@ function buscaMedico() {
 
                        nome.value = retorno.nome;
                        $( erro_crm ).hide('slow');
-                       nome.readOnly = 'true';
+                       
                       
                    }
 
@@ -153,10 +157,12 @@ function buscaMedico() {
 
 ////////////////////////////////////////////////////////////////////
 
+  var nome =  document.querySelector('#nome');
+      nome.readOnly = 'true';
+
+
 }); // end jquery...
 
 </script>
-
-
 
 
