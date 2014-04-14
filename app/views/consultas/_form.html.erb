@@ -92,13 +92,11 @@ $(document).ready(function() {
 ///////////////////////////////////////////////////
 
  $('#estado_medico').change( function() {
-      console.log('mudou estado');
       buscaMedico();
 
   }); 
 
   $('#crm').change( function() {
-      console.log('mudou crm');
       buscaMedico();
 
   }); 
@@ -130,7 +128,7 @@ function buscaMedico() {
 
                        $( erro_crm ).show('slow');
                        erro_crm.innerHTML = retorno.erro;
-                       
+                       nome.value = '';
                    }
 
                    else if ( data.status == '200' ) {
