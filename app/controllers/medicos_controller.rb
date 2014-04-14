@@ -1,3 +1,5 @@
+require 'open-uri'
+
 class MedicosController < ApplicationController
   before_action :set_medico, only: [:show, :edit, :update, :destroy]
 
@@ -58,18 +60,23 @@ class MedicosController < ApplicationController
   end
 
   def busca_medico
-    @nome_medico = {
-      "BA" => {
-        "1234" => "ADALBERTO SILVA",
-        "3321" => "JUCA CAIRES"
-      },
-      "SE" => {
-        "121" => "MARCELA SCHWEISSTEINGER",
-        "5221" => "LUCIOLA MASCARENHAS"
-      }
-    }[params[:uf]]
+    doc = Nokogiri::HTML(
+      open(
+        "http://portal.cfm.org.br/index.php" +
+        "?medicosNome=" +
+        "&medicosCRM=#{params[:crm]}" +
+        "&medicosUF=#{params[:uf]}" +
+        "&medicosTipoInscricao=" +
+        "&medicosEspecialidade=" +
+        "&buscaEfetuada=true" +
+        "&option=com_medicos#buscaMedicos"
+      )
+    )
 
-    @nome_medico = @nome_medico[params[:crm]] unless @nome_medico.nil?
+    @nome_medico = nil
+    doc.css('tr.regRow td.valorNome').each do |link|
+      @nome_medico = link.content
+    end
 
     render(
       json: { erro: "Nenhum médico foi encontrado para este CRM" }.to_json,
