@@ -15,6 +15,7 @@ end
 
 gem 'therubyracer'
 gem 'mail'
+gem 'nokogiri'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
