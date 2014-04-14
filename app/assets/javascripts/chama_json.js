@@ -146,7 +146,7 @@
 
               $.ajax({
 
-                  url: "medicos.json",
+                  url: "/medicos.json",
                   complete: function( data ) {
 
                       var meuJSON = JSON.parse( data.responseText );  
