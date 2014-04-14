@@ -65,30 +65,39 @@ class MedicosController < ApplicationController
       estado: Estado.find_by(nome: params[:uf].upcase)
     )
 
+    erro = nil
+
     if !medico.nil?
       @nome_medico = medico.nome
     else
-      doc = Nokogiri::HTML(
-        open(
-          "http://portal.cfm.org.br/index.php" +
-          "?medicosNome=" +
-          "&medicosCRM=#{params[:crm]}" +
-          "&medicosUF=#{params[:uf]}" +
-          "&medicosTipoInscricao=" +
-          "&medicosEspecialidade=" +
-          "&buscaEfetuada=true" +
-          "&option=com_medicos#buscaMedicos"
+      begin
+        doc = Nokogiri::HTML(
+          open(
+            "http://portal.cfm.org.br/index.php" +
+            "?medicosNome=" +
+            "&medicosCRM=#{params[:crm]}" +
+            "&medicosUF=#{params[:uf]}" +
+            "&medicosTipoInscricao=" +
+              "&medicosEspecialidade=" +
+              "&buscaEfetuada=true" +
+              "&option=com_medicos#buscaMedicos"
+          )
         )
-      )
 
-      @nome_medico = nil
-      doc.css('tr.regRow td.valorNome').each do |link|
-        @nome_medico = link.content
+        @nome_medico = nil
+        doc.css('tr.regRow td.valorNome').each do |link|
+          @nome_medico = link.content
+        end
+      rescue
+        @nome_medico = nil
+        erro = "Conexão indisponível"
       end
     end
 
+    erro = "Nenhum médico foi encontrado para este CRM" if erro.nil?
+
     render(
-      json: { erro: "Nenhum médico foi encontrado para este CRM" }.to_json,
+      json: { erro: erro }.to_json,
       status: :not_found
     ) if @nome_medico.nil?
   end
