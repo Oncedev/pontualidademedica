@@ -60,22 +60,31 @@ class MedicosController < ApplicationController
   end
 
   def busca_medico
-    doc = Nokogiri::HTML(
-      open(
-        "http://portal.cfm.org.br/index.php" +
-        "?medicosNome=" +
-        "&medicosCRM=#{params[:crm]}" +
-        "&medicosUF=#{params[:uf]}" +
-        "&medicosTipoInscricao=" +
-        "&medicosEspecialidade=" +
-        "&buscaEfetuada=true" +
-        "&option=com_medicos#buscaMedicos"
-      )
+    medico = Medico.find_by(
+      CRM: params[:crm], 
+      estado: Estado.find_by(nome: params[:uf].upcase)
     )
 
-    @nome_medico = nil
-    doc.css('tr.regRow td.valorNome').each do |link|
-      @nome_medico = link.content
+    if !medico.nil?
+      @nome_medico = medico.nome
+    else
+      doc = Nokogiri::HTML(
+        open(
+          "http://portal.cfm.org.br/index.php" +
+          "?medicosNome=" +
+          "&medicosCRM=#{params[:crm]}" +
+          "&medicosUF=#{params[:uf]}" +
+          "&medicosTipoInscricao=" +
+          "&medicosEspecialidade=" +
+          "&buscaEfetuada=true" +
+          "&option=com_medicos#buscaMedicos"
+        )
+      )
+
+      @nome_medico = nil
+      doc.css('tr.regRow td.valorNome').each do |link|
+        @nome_medico = link.content
+      end
     end
 
     render(
