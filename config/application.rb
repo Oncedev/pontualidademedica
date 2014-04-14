@@ -9,5 +9,6 @@ Bundler.require(:default, Rails.env)
 module Ponutalidademedica
   class Application < Rails::Application
     config.autoload_paths += %W["#{config.root}/app/validators/"]
+    config.timezone = "Brasilia"
   end
 end
