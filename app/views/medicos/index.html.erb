@@ -33,9 +33,11 @@
           <td><%= m[:medico].estado.nome + " " + m[:medico].CRM %></td>
           <td><%= m[:medico].nome %></td>
           <% if m[:atraso_medio] < 60 %>
-            <% atraso_formatado = "#{m[:atraso_medio]} m" %>
+            <% atraso_formatado = "#{m[:atraso_medio]}min" %>
           <% else %>
-            <% atraso_formatado = "#{m[:atraso_medio] / 60} h #{m[:atraso_medio] % 60}" %>
+            <% min_atraso = m[:atraso_medio] % 60 %>
+            <% min_atraso = "" if min_atraso == 0 %>
+            <% atraso_formatado = "#{m[:atraso_medio] / 60}h#{min_atraso}" %>
           <% end %>
           <td class="td_atraso"><%= atraso_formatado %></td>
           <td><%= m[:numero_consultas] %></td>
