@@ -36,7 +36,7 @@ $(document).ready(function() {
 
   <!------------------------------------>
 
-    <%= label_tag "CRM do médico", "CRM do médico" %><br>
+    <%= label_tag "CRM do médico", "CRM do Médico" %><br>
 
 
     <%= select_tag "estado_medico",
@@ -53,7 +53,7 @@ $(document).ready(function() {
 
 
   <div class="field">
-    <%= label_tag "Nome do médico" %><br>
+    <%= label_tag "Nome do médico", "Nome do Médico" %><br>
     <%= text_field_tag "nome_medico", @medico.nome, id: 'nome' %>
   </div>
  
@@ -63,16 +63,16 @@ $(document).ready(function() {
     <%= f.text_field :data_consulta, class: "date_picker" %>
   </div>
   <div class="field">
-    <%= f.label :hora_marcacao, "Hora de marcação" %><br>
+    <%= f.label :hora_marcacao, "Hora de Marcação" %><br>
     <%= f.text_field :hora_marcacao, class: "time_field" %>
   </div>
   <div class="field">
-    <%= f.label :hora_atendimento, "Hora de atendimento" %><br>
+    <%= f.label :hora_atendimento, "Hora de Atendimento" %><br>
     <%= f.text_field :hora_atendimento, class: "time_field" %>
   </div>
   <br>
   <div class="actions" id="div_encapsula_buttun_cadastrar">
-    <button type="submit" id="button_registrar" class="butons_right">Registrar consulta</button>
+    <button type="submit" id="button_registrar" class="butons_right">Registrar Consulta</button>
   </div><!-- end encapsula -->
 
 <br>
