@@ -85,11 +85,14 @@
                            saidaAtrasoFormato = null;
 
                            if ( passaMinutosParaHoras < 1 ) {
-                                saidaAtrasoFormato = meuJSON.medicos[ cont ].atraso_medio + ' m ';
+                                saidaAtrasoFormato = meuJSON.medicos[ cont ].atraso_medio + 'min';
                            }
 
                            else {
-                               saidaAtrasoFormato = passaMinutosParaHoras + ' h ' + resto;
+                                saidaAtrasoFormato = passaMinutosParaHoras + 'h';
+                                if ( resto != 0 ) {
+                                  saidaAtrasoFormato += resto;
+                                }
                            }
 
 
@@ -113,6 +116,8 @@
 // SUMINDO COM A PÁGINAÇÃO...
 //////////////////////////////////////////////////////////  
 
+                 if ( $("#pesquisa_crm").val() !== '' ) {
+
                      if ( meuJSON.medicos.length <= 10 ) {
                            
                            $('#anterior').hide();
@@ -127,6 +132,8 @@
                            $('#show_num_paginas').show();
 
                       }
+                  } // end primeiro if...
+                      
                       
 ////////////////////////////////////////////////////////
 
