@@ -5,7 +5,6 @@
        function chamaJson( registro, num_pagina ) {
 
                 var area = document.querySelector('#whapper_conteudo #table_conteudo');
-                    area.innerHTML = "";
 
                 $.ajax({
 
@@ -17,7 +16,8 @@
                 },
                   complete: function( data ) {
 
-                      var meuJSON = JSON.parse( data.responseText );   
+                      var meuJSON = JSON.parse( data.responseText );  
+                      area.innerHTML = ""; 
 
 ////////////////////////////////////////////////////
 // VERIFICA SE FOI ENCONTRADO UM CADASTRADO...
