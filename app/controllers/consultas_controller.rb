@@ -63,12 +63,17 @@ class ConsultasController < ApplicationController
         end
       end
 
+      hora_marcacao = par[:hora_marcacao]
+      hora_marcacao = "2400" if hora_marcacao == "24:00"
+      hora_atendimento = par[:hora_atendimento]
+      hora_atendimento = "2400" if hora_atendimento == "24:00"
+
       @consulta = Consulta.new(
         usuario_id: session[:usuario].id,
         medico_id: @medico.nil? ? nil : @medico.id,
         anonimo: par[:anonimo].to_s.to_bool,
-        hora_marcacao: par[:hora_marcacao],
-        hora_atendimento: par[:hora_atendimento],
+        hora_marcacao: hora_marcacao,
+        hora_atendimento: hora_atendimento,
         data_consulta: par[:data_consulta]
       )
 
