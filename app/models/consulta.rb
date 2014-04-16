@@ -12,7 +12,7 @@ end
 class NaoFuturaValidator < ActiveModel::EachValidator
   def validate_each(consulta, attr, value)
     if value.is_a?(Date)? value > Date.today : false
-      consulta.errors[attr] << "está no futuro"
+      consulta.errors[attr] << "superior à data atual"
     end
   end 
 end
@@ -25,7 +25,7 @@ class HoraNaoFuturaValidator < ActiveModel::EachValidator
       time_now = Time.at(now.hour * 60 + now.min)
 
       if consulta.data_consulta == Date.today && time_value > time_now
-        consulta.errors[attr] << "está no futuro"
+        consulta.errors[attr] << "superior à hora atual"
       end
     end
   end
