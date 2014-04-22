@@ -39,7 +39,12 @@ class MedicosController < ApplicationController
       end
 
       # TODO: Mandar para SQL
-      @medicos.sort_by!(&:atraso_medio).reverse!
+      @medicos.sort! do |a, b|
+        cmp_atraso = b.atraso_medio <=> a.atraso_medio
+
+        cmp_atraso == 0?
+          a.nome_pesquisavel <=> b.nome_pesquisavel : cmp_atraso
+      end
       @medicos = @medicos[offset..offset + limit - 1]
       @medicos.map! do |m|
         {
