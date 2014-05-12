@@ -46,6 +46,31 @@ class UsuariosController < ApplicationController
     end
   end
 
+  def esqueci_a_senha
+  end
+
+  def recuperar_senha
+    @usuario = Usuario.find_by email: params[:email]
+
+    respond_to do |format|
+      format.html do
+        if params[:email] == ""
+          flash[:error] = "Insira seu email"
+          redirect_to action: "esqueci_a_senha"
+        elsif @usuario.nil?
+          flash[:error] = "Email não encontrado"
+          redirect_to action: "esqueci_a_senha"
+        else
+          UsuarioMailer.recuperar_senha(@usuario).deliver
+          redirect_to action: "senha_enviada"
+        end
+      end
+    end
+  end
+
+  def senha_enviada
+  end
+
   def show
     if true # session[:usuario].nil? || session[:usuario].id != params[:id].to_i
       render "public/404.html", status: :not_found

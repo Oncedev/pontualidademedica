@@ -1,0 +1,24 @@
+<section class="section_class_padrao">
+  <h2>Insira seu email para recuperar a sua senha</h2>
+
+  <section id="whapper_conteudo">
+    <%= form_tag "/usuarios/recuperar_senha" do %>
+      <% if !flash[:error].nil? %>
+        <div id="error_explanation">
+          <ul>
+            <li><%= flash[:error] %></li>
+          </ul>
+        </div>
+      <% end %>
+
+      <div clas="field">
+        <%= label_tag :email_label, "Email" %><br />
+        <%= text_field_tag :email %>
+      </div>
+
+      <div class="actions">
+        <%= submit_tag "Recuperar senha" %>
+      </div>
+    <% end %>
+  </section>
+</section>

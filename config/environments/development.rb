@@ -27,4 +27,15 @@ Ponutalidademedica::Application.configure do
   # number of complex assets.
   config.assets.debug = true
   config.assets.compile = true
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: "smtpcorp.com",
+    port: 2525,
+    domain: "oncedev.com",
+    user_name: "luizromario2@gmail.com",
+    password: "Pontualidade2014",
+    authentication: "plain",
+    enable_starttls_auto: true
+  }
 end

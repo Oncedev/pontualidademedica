@@ -4,6 +4,9 @@ Ponutalidademedica::Application.routes.draw do
   post "usuarios/autenticar"
   get "usuarios/logout"
   get "usuarios/login"
+  get "usuarios/esqueci_a_senha"
+  get "usuarios/senha_enviada"
+  post "usuarios/recuperar_senha"
   get "sobre", controller: "sobre", action: "index"
   get "busca_medico", controller: "medicos", action: "busca_medico"
   resources :usuarios

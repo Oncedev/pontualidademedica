@@ -16,6 +16,7 @@
     <%= f.label :senha %><br>
     <%= f.password_field :senha,  placeholder: 'Digite sua senha' %>
   </div>
+  <%= link_to "Esqueci a senha", action: "esqueci_a_senha" %>
   <%= hidden_field_tag "redir", params[:redir] %>
 
   <div class="actions" id="div_encapsula_buttun_cadastrar">
