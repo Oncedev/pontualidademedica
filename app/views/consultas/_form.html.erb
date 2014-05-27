@@ -70,6 +70,10 @@ $(document).ready(function() {
     <%= f.label :hora_atendimento, "Hora de Atendimento" %><br>
     <%= f.text_field :hora_atendimento, class: "time_field" %>
   </div>
+  <div class="field">
+    <%= f.label :observacoes, "Observações" %><br />
+    <%= f.text_area :observacoes %>
+  </div>
   <br>
   <div class="actions" id="div_encapsula_buttun_cadastrar">
     <button type="submit" id="button_registrar" class="butons_right">Registrar Consulta</button>

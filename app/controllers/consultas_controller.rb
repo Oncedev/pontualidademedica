@@ -74,7 +74,8 @@ class ConsultasController < ApplicationController
         anonimo: par[:anonimo].to_s.to_bool,
         hora_marcacao: hora_marcacao,
         hora_atendimento: hora_atendimento,
-        data_consulta: par[:data_consulta]
+        data_consulta: par[:data_consulta],
+        observacoes: par[:observacoes]
       )
 
       respond_to do |format|
@@ -138,6 +139,7 @@ class ConsultasController < ApplicationController
         :hora_marcacao,
         :hora_atendimento,
         :data_consulta,
-        :anonimo)
+        :anonimo,
+        :observacoes)
     end
 end
