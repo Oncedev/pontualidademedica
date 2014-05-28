@@ -6,7 +6,7 @@ class MedicosController < ApplicationController
   # GET /medicos
   # GET /medicos.json
   def index
-
+    @usuario = Usuario.new
     crm = Integer(params[:CRM_ou_nome]) rescue nil
 
     @medicos = if !params.include? :CRM_ou_nome

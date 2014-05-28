@@ -13,4 +13,12 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require bootstrap.min
 //= require_tree .
+
+$(document).ready(function () {
+  $("#login-link").click(function (event) {
+    $("#modal-login").modal("show");
+    event.stopPropagation();
+  });
+});

@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Pontualidade Médica - Login</title>
-  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-tag" => true %>
-</head>
-
-<body>
-<%= form_for(@usuario, url: { action: "autenticar", method: "post" }) do |f| %>
+<<%= form_for(@usuario, url: { action: "autenticar", method: "post" }) do |f| %>
   <% if !flash[:error].nil? %>
   <p><%= flash[:error] %></p>
   <% end %>
@@ -40,5 +32,3 @@
 <div class="col-sm-4">
 </div>
 <% end %>
-</body>
-</html>
