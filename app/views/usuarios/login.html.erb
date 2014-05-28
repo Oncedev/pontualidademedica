@@ -1,33 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pontualidade Médica - Login</title>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-tag" => true %>
+</head>
+
+<body>
 <%= form_for(@usuario, url: { action: "autenticar", method: "post" }) do |f| %>
-    <% if !flash[:error].nil? %>
-    <p><%= flash[:error] %></p>
+  <% if !flash[:error].nil? %>
+  <p><%= flash[:error] %></p>
   <% end %>
 
 <div class="col-sm-4">
+</div>
+<div class="col-sm-4">
+  <div class="panel panel-default">
+    <div class="panel-heading">Pontualidade Médica</div>
+    <div class="panel-body">
+      <div class="form-group">
+        <%= f.label :email, class: 'control-label' %><br>
+        <%= f.text_field :email,  placeholder: 'Digite o seu e-mail', class: 'form-control input-sm' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :senha, class: 'control-label' %><br>
+        <%= f.password_field :senha,  placeholder: 'Digite sua senha', class: 'form-control input-sm' %>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block">Entrar</button>
+      </div>
     </div>
-    <div class="col-sm-4">
-        <div class="panel panel-default">
-            <div class="panel-heading">Pontualidade Médica</div>
-            <div class="panel-body">
-                <div class="form-group">
-                    <%= f.label :email, class: 'control-label' %><br>
-					<%= f.text_field :email,  placeholder: 'Digite o seu e-mail', class: 'form-control input-sm' %>
-                </div>
-                <div class="form-group">
-					<%= f.label :senha, class: 'control-label' %><br>
-					<%= f.password_field :senha,  placeholder: 'Digite sua senha', class: 'form-control input-sm' %>
-                </div>
-                <div class="form-group">
-                    <button type="button" class="btn btn-primary btn-block">Entrar</button>
-                </div>
-            </div>
-            <div class="panel-footer">
-                <div class="btn-group btn-group-justified">
-                    <a href="#" class="btn btn-link">Esqueceu a senha?</a>
-                    <a href="#" class="btn btn-link">Ainda não é cadastrado?</a>
-                </div>
-            </div>
-        </div>
+    <div class="panel-footer">
+      <div class="btn-group btn-group-justified">
+        <%= link_to "Esqueceu a senha?", { action: :esqueci_a_senha }, class: "btn btn-link" %>
+        <%= link_to "Ainda não é cadastrado?", { action: :new }, class: "btn btn-link" %>
+      </div>
     </div>
-    <div class="col-sm-4">
-    </div>
+  </div>
+</div>
+<div class="col-sm-4">
+</div>
+<% end %>
+</body>
+</html>

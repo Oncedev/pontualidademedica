@@ -9,7 +9,7 @@ class UsuariosController < ApplicationController
       if !session[:usuario].nil?
         format.html { redirect_to controller: "medicos" }
       else
-        format.html { render nil }
+        format.html { render nil, layout: false }
       end
     end
   end
