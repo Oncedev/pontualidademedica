@@ -69,7 +69,7 @@ header:hover {
 #pesquisa input {
 	width:200px;
 }
-input, select {
+input, textarea, select {
 	padding:10px;
 	border:1px solid gray;
 	border-radius:3px;
